@@ -108,8 +108,8 @@ const About = ({ lang, setShowCV }) => {
                   {lang === 'ES' ? 'Pssst... ¿reclutador técnico? F12 o pulsa ~' : 'Pssst... tech recruiter? F12 or press ~'}
                 </div>
               </div>
-              <div className="shrink-0 mt-4 sm:mt-0">
-                <img src="https://tryhackme-badges.s3.amazonaws.com/danimarpas4.png" alt="TryHackMe Badge" className="w-full sm:w-auto h-auto opacity-80 group-hover:opacity-100 transition-opacity duration-500 rounded-lg filter drop-shadow-md" />
+              <div className="shrink-0 px-6 py-2.5 bg-[#252528] rounded-full flex items-center gap-2 group-hover:bg-white group-hover:text-black transition-colors duration-500">
+                 <span className="font-medium text-sm tracking-tight">Ver Perfil &rarr;</span>
               </div>
             </a>
 

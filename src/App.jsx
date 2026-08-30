@@ -26,6 +26,14 @@ function App() {
   const loaderRef = useRef(null);
   const loaderTextRef = useRef(null);
 
+  // Tracker: notify once per session
+  useEffect(() => {
+    if (!sessionStorage.getItem('tracked')) {
+      fetch('/api/track', { method: 'POST' }).catch(() => {});
+      sessionStorage.setItem('tracked', 'true');
+    }
+  }, []);
+
   // Initialize smooth scrolling with Lenis
   useEffect(() => {
     const lenis = new Lenis({
