@@ -131,7 +131,7 @@ export const translations = {
     hero: {
       title: "Blue Team.",
       subtitle: "Security Specialist with a Full-Stack Base",
-      desc: "I am training to protect critical infrastructures (Blue Team). Knowing exactly how software is built in Backend and Frontend allows me to defend it from the core.",
+      desc: "From Tactical Operator to Infrastructure Defender (Blue Team). I apply the military discipline, crisis management, and defensive mindset forged in international deployments to protect software cores and bring immediate value to Security Operations Centers (SOC).",
       btnProjects: "View Projects",
       btnContact: "Contact Me"
     },

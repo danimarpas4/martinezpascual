@@ -36,6 +36,7 @@ const Terminal = ({ lang, isOpen, onClose, isInline = false }) => {
         newHistory.push({ type: 'system', text: '  cat skills.txt - Ver matriz de habilidades' });
         newHistory.push({ type: 'system', text: '  clear          - Limpiar consola' });
         newHistory.push({ type: 'system', text: '  sudo hire      - Iniciar protocolo de contratación' });
+        newHistory.push({ type: 'system', text: '  writeups       - Ver últimos CTFs resueltos' });
         newHistory.push({ type: 'system', text: '  exit           - Cerrar terminal' });
         break;
       case 'whoami':
@@ -59,6 +60,15 @@ const Terminal = ({ lang, isOpen, onClose, isInline = false }) => {
         setTimeout(() => {
           if (!isInline) onClose();
           document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' });
+        }, 1500);
+        break;
+      case 'writeups':
+        newHistory.push({ type: 'system', text: 'Listando write-ups recientes (Acceso autorizado):' });
+        newHistory.push({ type: 'system', text: ' [1] TryHackMe - Vulnversity (Rooted)' });
+        newHistory.push({ type: 'system', text: ' [2] HackTheBox - Lame (Privilege Escalation)' });
+        newHistory.push({ type: 'system', text: 'INFO: Abriendo TryHackMe...' });
+        setTimeout(() => {
+          window.open('https://tryhackme.com/p/danimarpas4', '_blank');
         }, 1500);
         break;
       case 'exit':
