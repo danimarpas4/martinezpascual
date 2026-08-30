@@ -9,32 +9,32 @@ const CVPrint = ({ lang, onClose }) => {
     <div className="bg-[#0c0c0e] min-h-screen relative flex flex-col items-center py-20">
       
       {/* Control Bar */}
-      <div className="fixed top-0 left-0 w-full bg-[#151516] border-b border-white/10 p-4 flex justify-between items-center z-50 shadow-2xl">
-        <span className="text-white font-medium text-sm ml-4">Curriculum_Vitae_DMP.pdf</span>
-        <div className="flex gap-4 mr-4">
+      <div className="fixed top-0 left-0 w-full bg-[#151516] border-b border-white/10 p-3 md:p-4 flex flex-col md:flex-row justify-between items-center gap-3 md:gap-0 z-50 shadow-2xl print:hidden">
+        <span className="text-white font-medium text-xs md:text-sm truncate w-full md:w-auto text-center md:text-left">Curriculum_Vitae_DMP.pdf</span>
+        <div className="flex w-full md:w-auto gap-2 md:gap-4 justify-center">
           <button 
             onClick={() => window.print()} 
-            className="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-lg font-medium text-sm hover:bg-gray-200 transition-colors"
+            className="flex-1 md:flex-none flex justify-center items-center gap-2 bg-white text-black px-3 py-2 md:px-4 md:py-2 rounded-lg font-medium text-xs md:text-sm hover:bg-gray-200 transition-colors"
           >
-            <Printer className="w-4 h-4" /> {lang === 'ES' ? 'Imprimir / Guardar PDF' : 'Print / Save PDF'}
+            <Printer className="w-4 h-4" /> {lang === 'ES' ? 'Guardar PDF' : 'Save PDF'}
           </button>
           <button 
             onClick={onClose} 
-            className="flex items-center gap-2 bg-red-500/10 text-red-500 px-4 py-2 rounded-lg font-medium text-sm hover:bg-red-500 hover:text-white transition-colors"
+            className="flex-1 md:flex-none flex justify-center items-center gap-2 bg-red-500/10 text-red-500 px-3 py-2 md:px-4 md:py-2 rounded-lg font-medium text-xs md:text-sm hover:bg-red-500 hover:text-white transition-colors"
           >
-            <X className="w-4 h-4" /> {lang === 'ES' ? 'Volver al Portfolio' : 'Back to Portfolio'}
+            <X className="w-4 h-4" /> {lang === 'ES' ? 'Volver' : 'Back'}
           </button>
         </div>
       </div>
 
       {/* CV A4 Paper */}
-      <div className="bg-white text-black w-full max-w-[21cm] min-h-[29.7cm] p-[2cm] shadow-2xl print:shadow-none print:p-0 print:m-0">
-      <div className="flex justify-between items-end border-b-2 border-black pb-4 mb-8">
+      <div className="bg-white text-black w-full max-w-[21cm] min-h-[29.7cm] p-6 md:p-[2cm] shadow-2xl print:shadow-none print:p-0 print:m-0 mt-20 md:mt-0">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 md:gap-0 border-b-2 border-black pb-4 mb-8">
         <div>
-          <h1 className="text-4xl font-bold tracking-tight mb-1">Daniel Martínez Pascual</h1>
-          <h2 className="text-xl text-gray-600">{t.hero.subtitle}</h2>
+          <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-1">Daniel Martínez Pascual</h1>
+          <h2 className="text-lg md:text-xl text-gray-600">{t.hero.subtitle}</h2>
         </div>
-        <div className="text-right text-sm text-gray-600">
+        <div className="text-left md:text-right text-xs md:text-sm text-gray-600">
           <p>github.com/danimarpas4</p>
           <p>tryhackme.com/p/danimarpas4</p>
         </div>
@@ -45,8 +45,8 @@ const CVPrint = ({ lang, onClose }) => {
         <p className="text-sm leading-relaxed">{t.hero.desc} {t.about.p3.replace(/<\/?[^>]+(>|$)/g, "")}</p>
       </div>
 
-      <div className="grid grid-cols-3 gap-8">
-        <div className="col-span-2">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        <div className="col-span-1 md:col-span-2">
           <h3 className="text-lg font-bold border-b border-gray-300 mb-4 uppercase tracking-wider">{t.exp.title}</h3>
           
           <div className="mb-6">
