@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Briefcase, GraduationCap, Calendar, Award, ExternalLink, Globe } from 'lucide-react';
+import { Briefcase, GraduationCap, Calendar, Award, ExternalLink, Globe, ShieldCheck } from 'lucide-react';
 import { translations } from '../translations';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
@@ -86,6 +86,24 @@ const Experience = ({ lang }) => {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+
+        {/* Certifications (Wall of Trust) */}
+        <div className="mt-20 lg:mt-32 border-t border-white/5 pt-20">
+          <h3 className="text-2xl md:text-3xl font-semibold text-white flex items-center gap-3 tracking-tight mb-10 gsap-reveal-exp">
+            <ShieldCheck className="text-emerald-500 w-7 h-7" /> {t.certificationsTitle}
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {t.certifications && t.certifications.map((cert, idx) => (
+              <div key={idx} className="gsap-reveal-exp bg-[#151516] p-8 rounded-[2rem] border border-emerald-500/10 flex flex-col transition-all duration-700 hover:scale-[1.02] hover:bg-[#1c1c1e] hover:border-emerald-500/30 group">
+                <span className="px-3 py-1 bg-emerald-500/10 text-emerald-400 text-xs rounded-full font-medium tracking-wide w-fit mb-6 border border-emerald-500/20 group-hover:bg-emerald-500 group-hover:text-black transition-colors duration-500">
+                  {cert.badge}
+                </span>
+                <h4 className="text-white font-medium text-xl tracking-tight mb-4">{cert.title}</h4>
+                <p className="text-gray-400 text-sm leading-relaxed font-light flex-1">{cert.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
 

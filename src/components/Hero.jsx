@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { translations } from '../translations';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+import { useEffect } from 'react';
 import Terminal from './Terminal';
 
 const Hero = ({ lang }) => {
@@ -10,6 +11,67 @@ const Hero = ({ lang }) => {
   const videoRef = useRef(null);
   const textRefs = useRef([]);
   const terminalRef = useRef(null);
+
+  useEffect(() => {
+    const canvas = document.getElementById('network-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let width = canvas.width = window.innerWidth;
+    let height = canvas.height = window.innerHeight;
+    let particles = [];
+
+    const init = () => {
+      particles = [];
+      for (let i = 0; i < (window.innerWidth < 768 ? 40 : 100); i++) {
+        particles.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          vx: (Math.random() - 0.5) * 0.5,
+          vy: (Math.random() - 0.5) * 0.5,
+          radius: Math.random() * 1.5 + 0.5
+        });
+      }
+    };
+
+    const animate = () => {
+      ctx.clearRect(0, 0, width, height);
+      particles.forEach((p, i) => {
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.x < 0 || p.x > width) p.vx *= -1;
+        if (p.y < 0 || p.y > height) p.vy *= -1;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(16, 185, 129, 0.5)'; // Emerald
+        ctx.fill();
+
+        for (let j = i + 1; j < particles.length; j++) {
+          const p2 = particles[j];
+          const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+          if (dist < 150) {
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.strokeStyle = `rgba(16, 185, 129, ${0.15 - dist/1000})`;
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        }
+      });
+      requestAnimationFrame(animate);
+    };
+
+    init();
+    animate();
+
+    const handleResize = () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+      init();
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useGSAP(() => {
     // Wait for the main app loader to finish before animating
@@ -45,19 +107,11 @@ const Hero = ({ lang }) => {
 
   return (
     <section ref={container} id="inicio" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black pt-20">
-      {/* Background Video (Muted, monochrome, subtle) */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-black/60 z-10"></div>
-        <video 
-          ref={videoRef}
-          className="w-full h-full object-cover opacity-0 grayscale contrast-125" 
-          autoPlay 
-          loop 
-          muted 
-          playsInline
-        >
-          <source src="https://assets.codepen.io/3364143/7btrrd.mp4" type="video/mp4" />
-        </video>
+      {/* Background Network Canvas */}
+      <div className="absolute inset-0 z-0 bg-[#050505] overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-emerald-900/10 via-black/80 to-black z-10 pointer-events-none"></div>
+        <canvas id="network-canvas" className="absolute inset-0 w-full h-full opacity-0" ref={videoRef}></canvas>
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)', backgroundSize: '50px 50px' }}></div>
       </div>
 
       {/* Content Overlay */}

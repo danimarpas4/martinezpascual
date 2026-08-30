@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
-import { ExternalLink, Github, Bot } from 'lucide-react';
+import { ExternalLink, Github, Bot, Server, Shield, Database, Layout } from 'lucide-react';
+import { useState } from 'react';
 import { translations } from '../translations';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
@@ -10,6 +11,7 @@ gsap.registerPlugin(ScrollTrigger);
 const Projects = ({ lang }) => {
   const t = translations[lang].projects;
   const container = useRef(null);
+  const [activeArch, setActiveArch] = useState(null);
 
   useGSAP(() => {
     const elements = gsap.utils.toArray('.gsap-reveal-proj');
@@ -92,8 +94,9 @@ const Projects = ({ lang }) => {
                     ))}
                   </div>
                   
-                  <div className="flex flex-wrap gap-4">
-                    {project.links && project.links.map((link, i) => (
+                  <div className="flex flex-wrap gap-4 items-center justify-between w-full">
+                    <div className="flex gap-4">
+                      {project.links && project.links.map((link, i) => (
                       <a 
                         key={i}
                         href={link.url} 
@@ -104,6 +107,13 @@ const Projects = ({ lang }) => {
                         <ExternalLink className="w-4 h-4" /> {link.label}
                       </a>
                     ))}
+                    </div>
+                    <button 
+                      onClick={() => setActiveArch(idx)}
+                      className="text-xs font-mono text-emerald-400 hover:text-emerald-300 border border-emerald-500/30 px-3 py-1.5 rounded bg-emerald-500/10 transition-colors"
+                    >
+                      [Arquitectura]
+                    </button>
                   </div>
                 </div>
               </div>
@@ -111,6 +121,61 @@ const Projects = ({ lang }) => {
           ))}
         </div>
       </div>
+
+      {/* Architecture Modal */}
+      {activeArch !== null && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-md" onClick={() => setActiveArch(null)}>
+          <div className="bg-[#0c0c0e] border border-white/10 rounded-2xl p-8 max-w-4xl w-full" onClick={e => e.stopPropagation()}>
+            <h3 className="text-2xl font-semibold text-white mb-8">{t.items[activeArch].title} - Blueprint</h3>
+            
+            <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 py-12">
+              
+              {/* Client */}
+              <div className="flex flex-col items-center">
+                <div className="w-16 h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-4">
+                  <Layout className="w-8 h-8 text-gray-400" />
+                </div>
+                <span className="text-sm text-gray-400 font-mono">Client (React)</span>
+              </div>
+              
+              <div className="hidden md:block w-16 border-t-2 border-dashed border-gray-600"></div>
+              
+              {/* Firewall / Nginx */}
+              <div className="flex flex-col items-center">
+                <div className="w-16 h-16 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center mb-4">
+                  <Shield className="w-8 h-8 text-emerald-400" />
+                </div>
+                <span className="text-sm text-emerald-400 font-mono">Nginx Proxy</span>
+              </div>
+              
+              <div className="hidden md:block w-16 border-t-2 border-dashed border-gray-600"></div>
+              
+              {/* App Server */}
+              <div className="flex flex-col items-center">
+                <div className="w-16 h-16 rounded-lg bg-blue-500/10 border border-blue-500/30 flex items-center justify-center mb-4">
+                  <Server className="w-8 h-8 text-blue-400" />
+                </div>
+                <span className="text-sm text-blue-400 font-mono">Docker App</span>
+              </div>
+              
+              <div className="hidden md:block w-16 border-t-2 border-dashed border-gray-600"></div>
+              
+              {/* Database */}
+              <div className="flex flex-col items-center">
+                <div className="w-16 h-16 rounded-lg bg-rose-500/10 border border-rose-500/30 flex items-center justify-center mb-4">
+                  <Database className="w-8 h-8 text-rose-400" />
+                </div>
+                <span className="text-sm text-rose-400 font-mono">Database</span>
+              </div>
+              
+            </div>
+            
+            <div className="text-center mt-8">
+              <button onClick={() => setActiveArch(null)} className="text-gray-500 hover:text-white transition-colors text-sm uppercase tracking-widest">Cerrar</button>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

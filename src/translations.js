@@ -58,6 +58,16 @@ export const translations = {
         }
       ],
       decorationsTitle: "Condecoraciones",
+      certificationsTitle: "Certificaciones & Target",
+      certifications: [
+        { title: "eLearnSecurity Junior Penetration Tester (eJPT)", badge: "In Progress - 2026", desc: "Certificación práctica en hacking ético, pentesting y metodologías de Blue/Red Team." },
+        { title: "CompTIA Security+", badge: "Target 2026", desc: "Fundamentos de ciberseguridad, gestión de riesgos y criptografía." }
+      ],
+      certificationsTitle: "Certifications & Targets",
+      certifications: [
+        { title: "eLearnSecurity Junior Penetration Tester (eJPT)", badge: "In Progress - 2026", desc: "Practical certification in ethical hacking, penetration testing, and Blue/Red Team methodologies." },
+        { title: "CompTIA Security+", badge: "Target 2026", desc: "Cybersecurity fundamentals, risk management, and cryptography." }
+      ],
       decorations: [
         {
           title: "Cruz al Mérito Militar con distintivo blanco",
@@ -185,6 +195,16 @@ export const translations = {
         }
       ],
       decorationsTitle: "Decorations",
+      certificationsTitle: "Certificaciones & Target",
+      certifications: [
+        { title: "eLearnSecurity Junior Penetration Tester (eJPT)", badge: "In Progress - 2026", desc: "Certificación práctica en hacking ético, pentesting y metodologías de Blue/Red Team." },
+        { title: "CompTIA Security+", badge: "Target 2026", desc: "Fundamentos de ciberseguridad, gestión de riesgos y criptografía." }
+      ],
+      certificationsTitle: "Certifications & Targets",
+      certifications: [
+        { title: "eLearnSecurity Junior Penetration Tester (eJPT)", badge: "In Progress - 2026", desc: "Practical certification in ethical hacking, penetration testing, and Blue/Red Team methodologies." },
+        { title: "CompTIA Security+", badge: "Target 2026", desc: "Cybersecurity fundamentals, risk management, and cryptography." }
+      ],
       decorations: [
         {
           title: "Cross of Military Merit with white decoration",
