@@ -4,50 +4,50 @@ export const translations = {
     hero: {
       title: "Blue Team.",
       subtitle: "Especialista en Seguridad con base Full-Stack",
-      desc: "Me formo para proteger infraestructuras (Blue Team). Conocer a fondo cómo se construye el software en Backend y Frontend me permite defenderlo desde su núcleo.",
+      desc: "De Operador Táctico a Defensor de Infraestructuras (Blue Team). Aplico la disciplina militar, la gestión de crisis y la mentalidad defensiva forjada en despliegues internacionales para proteger el núcleo del software y aportar valor inmediato en Centros de Operaciones de Seguridad (SOC).",
       btnProjects: "Ver Proyectos",
       btnContact: "Contactar"
     },
     about: {
-      title: "Conoce al especialista",
-      p1: "Soy un profesional con un perfil analítico y metódico. Como <strong>Cabo en activo en el Ejército de Tierra</strong>, con experiencia operativa y despliegues internacionales en misiones de la OTAN y la UE, he forjado una mentalidad orientada a la misión y a la protección.",
-      p2: "Aplico los valores militares de <strong>disciplina, liderazgo y seguridad operacional</strong> a la ciberseguridad. Actualmente me estoy especializando en Blue Team, apoyándome en mis conocimientos de desarrollo para entender la tecnología en profundidad.",
-      p3: "Mi objetivo es integrar esta formación técnica y mi mentalidad defensiva en el sector tecnológico, preparándome para aportar valor real en <strong>operaciones de seguridad (SOC) y equipos de respuesta a incidentes</strong>.",
-      stack: "Conocimientos",
+      title: "Conoce al Especialista",
+      p1: "Soy un profesional de perfil analítico y metódico. Como <strong>Cabo en activo del Ejército de Tierra</strong>, con experiencia operativa y despliegues internacionales en misiones de la OTAN y la Unión Europea, he forjado una mentalidad orientada a la misión.",
+      p2: "Aplico los valores militares de <strong>disciplina, liderazgo y seguridad operativa</strong> a la ciberseguridad. Actualmente me especializo en Blue Team, apoyándome en mis conocimientos de desarrollo para entender la tecnología desde sus cimientos.",
+      p3: "Mi objetivo es integrar esta formación técnica y mi mentalidad defensiva en el sector tecnológico, preparándome para aportar valor real en <strong>Centros de Operaciones de Seguridad (SOC) y equipos de respuesta a incidentes</strong>.",
+      stack: "Base de Conocimientos",
       download: "Descargar CV",
-      thmTitle: "Perfil TryHackMe",
+      thmTitle: "Perfil de TryHackMe",
       thmDesc: "Entrenamiento continuo en entornos reales de Ciberseguridad."
     },
     exp: {
-      title: "Trayectoria",
+      title: "Experiencia y Formación",
       jobs: [
         {
-          role: "Communications NCO & Tactical Operator",
+          role: "Suboficial de Transmisiones y Operador Táctico",
           org: "Misión OTAN (Eslovaquia)",
           date: "Dic 2024 - Jun 2025",
-          desc: "Despliegue internacional. Gestión de redes de comunicaciones tácticas seguras y operación bajo protocolos estrictos en entornos de alta presión."
+          desc: "Despliegue internacional. Gestión de redes de comunicaciones tácticas seguras y operación bajo protocolos estrictos en entornos de alta exigencia."
         },
         {
-          role: "Combat Instructor & Logistics Operator",
-          org: "Misión Unión Europea (Ubicación Desconocida)",
+          role: "Instructor de Combate y Operador Logístico",
+          org: "Misión Unión Europea (Lugar reservado)",
           date: "Jun 2024 - Ago 2024",
           desc: "Instrucción especializada y coordinación logística compleja, adaptando metodologías tecnológicas para superar barreras idiomáticas."
         },
         {
-          role: "Militar en activo (Cabo)",
+          role: "Cabo (Servicio Activo)",
           org: "Ministerio de Defensa (Ejército de Tierra)",
           date: "Nov 2018 - Presente",
-          desc: "Desarrollo de liderazgo, disciplina inquebrantable y seguridad operacional aplicados tanto al ámbito táctico como tecnológico. Participación en misiones nacionales en apoyo a la población española durante el COVID-19 (Operación Balmis y Operación Baluarte)."
+          desc: "Desarrollo de liderazgo, disciplina férrea y seguridad operativa aplicados tanto en el entorno táctico como tecnológico. Participación en misiones nacionales de apoyo a la población española durante el COVID-19 (Operación Balmis y Operación Baluarte)."
         }
       ],
       edu: [
         {
           title: "Bachelor of Science Honours Degree (BSc) in Applied Computing",
           org: "University of Wales Trinity Saint David",
-          date: "Cursando actualmente"
+          date: "Estudiando actualmente"
         },
         {
-          title: "Bootcamp Desarrollo Full Stack",
+          title: "Bootcamp Desarrollo Full-Stack",
           org: "Conquer Blocks",
           date: "2025 - 2026"
         },
@@ -57,20 +57,25 @@ export const translations = {
           date: "Agosto 2025"
         }
       ],
-      decorationsTitle: "Condecoraciones",
       certificationsTitle: "Certificaciones & Target",
       certifications: [
         { title: "eLearnSecurity Junior Penetration Tester (eJPT)", badge: "In Progress - 2026", desc: "Certificación práctica en hacking ético, pentesting y metodologías de Blue/Red Team." },
         { title: "CompTIA Security+", badge: "Target 2026", desc: "Fundamentos de ciberseguridad, gestión de riesgos y criptografía." }
       ],
-      certificationsTitle: "Certifications & Targets",
-      certifications: [
-        { title: "eLearnSecurity Junior Penetration Tester (eJPT)", badge: "In Progress - 2026", desc: "Practical certification in ethical hacking, penetration testing, and Blue/Red Team methodologies." },
-        { title: "CompTIA Security+", badge: "Target 2026", desc: "Cybersecurity fundamentals, risk management, and cryptography." }
-      ],
+      decorationsTitle: "Condecoraciones",
       decorations: [
         {
-          title: "Cruz al Mérito Militar con distintivo blanco",
+          title: "Medalla Vigilance OTAN",
+          badge: "OTAN / NATO",
+          desc: "Reconocimiento internacional por el despliegue y participación en misiones de vigilancia y presencia avanzada de la OTAN."
+        },
+        {
+          title: "Medalla UE Ukraine",
+          badge: "Unión Europea",
+          desc: "Condecoración por la contribución a la Misión de Asistencia Militar de la Unión Europea (EUMAM) en apoyo a Ucrania."
+        },
+        {
+          title: "Cruz del Mérito Militar con distintivo blanco",
           badge: "Ejército de Tierra",
           desc: "Condecoración por méritos, trabajos y acciones destacadas en el cumplimiento del deber."
         },
@@ -96,27 +101,27 @@ export const translations = {
       items: [
         {
           title: "ProMilitar - Academia Online",
-          prob: "Plataforma web educativa para preparación militar, ofreciendo un entorno completo con tests, temario, instructor IA y planificación personalizada.",
-          det: "Arquitectura robusta desplegada en VPS Hetzner con proxy inverso Nginx. Integra frontend responsivo y backend centralizado con despliegue continuo vía Docker.",
+          prob: "Plataforma web educativa orientada a la preparación militar, ofreciendo un entorno completo con tests, temarios, instructora IA y planificación a medida.",
+          det: "Arquitectura robusta desplegada en VPS de Hetzner con proxy inverso Nginx. Integra un frontend responsivo y un backend centralizado con despliegue continuo mediante Docker.",
           tech: ["Django", "PostgreSQL", "Docker", "Tailwind CSS", "Nginx", "VPS"],
           links: [
             { url: "https://promilitar.es", label: "promilitar.es" }
           ]
         },
         {
-          title: "Bots de Telegram Automatizados",
-          prob: "Sistema de gestión masiva de preguntas y envíos automáticos (tandas programadas) para el entrenamiento continuo de los opositores.",
-          det: "Desarrollo en Python 3.12 con programación asíncrona. Consume una API REST y utiliza APScheduler para programar envíos ininterrumpidos en distintos rangos horarios.",
+          title: "Bots Automatizados Telegram",
+          prob: "Gestión masiva de preguntas y sistema de entrega automatizada (lotes programados) para entrenamiento continuo de opositores.",
+          det: "Desarrollo en Python 3.12 con programación asíncrona. Consume una API REST y emplea APScheduler para programar envíos ininterrumpidos en distintas franjas horarias.",
           tech: ["Python 3.12", "Asyncio", "Telegram API", "APScheduler", "REST API"],
           links: [
             { url: "https://t.me/testpromilitar", label: "Bot Cabo" },
-            { url: "https://t.me/CaboPrimero", label: "Bot Cabo Primero" }
+            { url: "https://t.me/CaboPrimero", label: "Bot Cabo 1º" }
           ]
         },
         {
-          title: "Sistema de Gestión de Personal",
+          title: "Gestor de Personal",
           prob: "Aplicación web integral para el control, seguimiento y administración eficiente de subordinados en entornos de alta exigencia.",
-          det: "Implementa lógica de negocio compleja para gestionar jerarquías, cuadrantes de turnos, vacaciones y control de estudios, con un diseño estricto de base de datos relacional y roles de usuario.",
+          det: "Implementa lógica de negocio compleja para gestionar jerarquías, cuadrantes de turnos, vacaciones y seguimiento de estudios, con un diseño de base de datos relacional estricto y roles de usuario.",
           tech: ["React", "SQLAlchemy", "MySQL", "RBAC"],
           links: [
             { url: "https://app.promilitar.es", label: "app.promilitar.es" }
@@ -194,17 +199,12 @@ export const translations = {
           date: "August 2025"
         }
       ],
-      decorationsTitle: "Decorations",
-      certificationsTitle: "Certificaciones & Target",
-      certifications: [
-        { title: "eLearnSecurity Junior Penetration Tester (eJPT)", badge: "In Progress - 2026", desc: "Certificación práctica en hacking ético, pentesting y metodologías de Blue/Red Team." },
-        { title: "CompTIA Security+", badge: "Target 2026", desc: "Fundamentos de ciberseguridad, gestión de riesgos y criptografía." }
-      ],
       certificationsTitle: "Certifications & Targets",
       certifications: [
         { title: "eLearnSecurity Junior Penetration Tester (eJPT)", badge: "In Progress - 2026", desc: "Practical certification in ethical hacking, penetration testing, and Blue/Red Team methodologies." },
         { title: "CompTIA Security+", badge: "Target 2026", desc: "Cybersecurity fundamentals, risk management, and cryptography." }
       ],
+      decorationsTitle: "Decorations",
       decorations: [
         {
           title: "NATO Vigilance Medal",
