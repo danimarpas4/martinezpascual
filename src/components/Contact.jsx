@@ -79,7 +79,7 @@ const Contact = ({ lang }) => {
         
         <div className="flex flex-col items-center mb-16 text-center gsap-reveal-contact">
           <h2 className="text-4xl md:text-6xl font-semibold text-white mb-6 tracking-tighter">{t.title}</h2>
-          <p className="text-gray-400 text-lg font-light tracking-wide max-w-xl">{t.desc}</p>
+          <p className="text-gray-400 text-lg font-light tracking-wide max-w-xl" dangerouslySetInnerHTML={{ __html: t.desc }}></p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6 bg-[#151516] p-8 md:p-10 rounded-[2rem] border border-white/5 gsap-reveal-contact relative">

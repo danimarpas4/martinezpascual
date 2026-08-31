@@ -131,7 +131,7 @@ export const translations = {
     },
     contact: {
       title: "Contacto",
-      desc: "¿Buscas asegurar tu infraestructura o un perfil versátil para tu equipo Blue Team? Hablemos.",
+      desc: "¿Buscas asegurar tu infraestructura o un perfil versátil para tu equipo Blue Team? Usa el formulario o escríbeme directamente a <strong>danimarpas4@gmail.com</strong>.",
       name: "Nombre",
       namePh: "Introduce tu nombre",
       email: "Email",
@@ -273,7 +273,7 @@ export const translations = {
     },
     contact: {
       title: "Contact",
-      desc: "Looking to secure your infrastructure or a versatile profile for your Blue Team? Let's talk.",
+      desc: "Looking to secure your infrastructure or a versatile profile for your Blue Team? Use the form below or email me directly at <strong>danimarpas4@gmail.com</strong>.",
       name: "Name",
       namePh: "Enter your name",
       email: "Email",
