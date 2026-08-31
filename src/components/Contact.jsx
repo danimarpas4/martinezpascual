@@ -19,20 +19,33 @@ const Contact = ({ lang }) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
     
     setStatus('loading');
     
-    // Simulate API request
-    setTimeout(() => {
-      setStatus('success');
-      setFormData({ name: '', email: '', message: '' });
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
       
-      // Reset after 3 seconds
-      setTimeout(() => setStatus('idle'), 3000);
-    }, 1500);
+      if (response.ok) {
+        setStatus('success');
+        setFormData({ name: '', email: '', message: '' });
+        setTimeout(() => setStatus('idle'), 3000);
+      } else {
+        setStatus('idle');
+        alert("Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.");
+      }
+    } catch (error) {
+      setStatus('idle');
+      alert("No se pudo conectar con el servidor.");
+    }
   };
 
   useGSAP(() => {
