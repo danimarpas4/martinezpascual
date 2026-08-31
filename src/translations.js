@@ -207,6 +207,16 @@ export const translations = {
       ],
       decorations: [
         {
+          title: "NATO Vigilance Medal",
+          badge: "NATO / OTAN",
+          desc: "International recognition for deployment and participation in NATO's enhanced Forward Presence and vigilance missions."
+        },
+        {
+          title: "EU Ukraine Medal",
+          badge: "European Union",
+          desc: "Decoration for the contribution to the European Union Military Assistance Mission (EUMAM) in support of Ukraine."
+        },
+        {
           title: "Cross of Military Merit with white decoration",
           badge: "Spanish Army",
           desc: "Decoration for merits, works, and outstanding actions in the line of duty."
