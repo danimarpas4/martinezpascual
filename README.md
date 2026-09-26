@@ -22,7 +22,7 @@ misiones de la OTAN y de la Unión Europea. Ese trabajo me enseñó a trabajar c
 disciplina, en equipo y con la cabeza fría cuando algo se complica.
 
 En el terreno de la tecnología el camino ha sido el inverso: primero me formé en
-desarrollo (Full-Stack y Blockchain) y después apliqué esa mentalidad al lado
+desarrollo (Full-Stack) y después apliqué esa mentalidad al lado
 defensivo de la ciberseguridad. En un SOC, un despliegue y una alerta crítica se
 gestionan con la misma lógica: **información clara, responsable asignado y nada que
 se pierda por el camino**.
