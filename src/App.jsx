@@ -13,7 +13,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Terminal from './components/Terminal';
 import CVPrint from './components/CVPrint';
-import { TerminalSquare } from 'lucide-react';
+import { TerminalSquare, ChevronUp } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -22,6 +22,11 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
   const [showCV, setShowCV] = useState(false);
+  const [showBackToTop, setShowBackToTop] = useState(false);
+  useEffect(() => {
+    document.documentElement.lang = lang.toLowerCase();
+  }, [lang]);
+
   
   const loaderRef = useRef(null);
   const loaderTextRef = useRef(null);
@@ -32,6 +37,14 @@ function App() {
       fetch('/api/track', { method: 'POST' }).catch(() => {});
       sessionStorage.setItem('tracked', 'true');
     }
+  }, []);
+
+    useEffect(() => {
+    const handleScroll = () => {
+      setShowBackToTop(window.scrollY > 600);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   // Initialize smooth scrolling with Lenis
@@ -146,12 +159,23 @@ function App() {
           </main>
           <Footer />
           
+          {/* Back to top button */}
+          <button 
+            id="back-to-top"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className={`fixed bottom-20 right-6 z-40 p-3 bg-black border border-white/20 rounded-full text-white hover:bg-emerald-900/50 transition-all duration-300 backdrop-blur-md ${showBackToTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'}`}
+            title="Volver arriba"
+          >
+            <ChevronUp className="w-5 h-5" />
+          </button>
+          
           <button 
             onClick={() => setIsTerminalOpen(true)}
-            className="fixed bottom-6 right-6 z-40 p-3 bg-white/5 border border-white/10 rounded-full text-gray-400 hover:text-white hover:bg-white/10 transition-all duration-300 backdrop-blur-md"
+            className="fixed bottom-6 right-6 z-40 p-3 bg-black border border-white/20 rounded-full text-emerald-500 hover:text-white hover:bg-emerald-900/50 transition-all duration-300 backdrop-blur-md group"
             title="Abrir Terminal SOC"
           >
-            <TerminalSquare className="w-5 h-5" />
+            <span className="absolute inset-0 rounded-full bg-emerald-500/40 animate-ping opacity-75 group-hover:animate-none"></span>
+            <TerminalSquare className="w-5 h-5 relative z-10" />
           </button>
         </div>
       </div>

@@ -54,6 +54,7 @@ const About = ({ lang, setShowCV }) => {
           {/* Profile Image (Left column, tall) */}
           <div className="gsap-reveal md:col-span-1 rounded-[2rem] overflow-hidden bg-[#151516] border border-white/5 relative group h-[500px] flex flex-col justify-end transition-all duration-700 hover:scale-[1.01] hover:border-white/10">
             <img 
+              loading="lazy"
               src="/profile.jpg" 
               alt="Daniel Martínez Pascual - Army" 
               className="absolute inset-0 w-full h-full object-cover opacity-80 transition-transform duration-1000 group-hover:scale-105"
@@ -67,13 +68,15 @@ const About = ({ lang, setShowCV }) => {
                 <Shield className="w-4 h-4 text-gray-500" /> Cabo en activo
               </p>
               
-              <button 
-                onClick={() => setShowCV(true)}
+              <a 
+                href="/CV_Daniel_Martinez_Pascual.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-3 px-5 py-3.5 bg-black/40 hover:bg-white text-white hover:text-black backdrop-blur-xl border border-white/10 rounded-2xl transition-all duration-500 w-full justify-center font-medium text-sm"
               >
                 <Download className="w-4 h-4" />
                 <span>{t.download}</span>
-              </button>
+              </a>
             </div>
           </div>
 

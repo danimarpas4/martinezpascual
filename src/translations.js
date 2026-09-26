@@ -14,7 +14,7 @@ export const translations = {
       p2: "Aplico los valores militares de <strong>disciplina, liderazgo y seguridad operativa</strong> a la ciberseguridad. Actualmente me especializo en Blue Team, apoyándome en mis conocimientos de desarrollo para entender la tecnología desde sus cimientos.",
       p3: "Mi objetivo es integrar esta formación técnica y mi mentalidad defensiva en el sector tecnológico, preparándome para aportar valor real en <strong>Centros de Operaciones de Seguridad (SOC) y equipos de respuesta a incidentes</strong>.",
       stack: "Base de Conocimientos",
-      download: "Descargar CV",
+      download: "Ver CV",
       thmTitle: "Perfil de TryHackMe",
       thmDesc: "Entrenamiento continuo en entornos reales de Ciberseguridad."
     },
@@ -22,7 +22,7 @@ export const translations = {
       title: "Experiencia y Formación",
       jobs: [
         {
-          role: "Suboficial de Transmisiones y Operador Táctico",
+          role: "Encargado de Transmisiones y Operador Táctico",
           org: "Misión OTAN (Eslovaquia)",
           date: "Dic 2024 - Jun 2025",
           desc: "Despliegue internacional. Gestión de redes de comunicaciones tácticas seguras y operación bajo protocolos estrictos en entornos de alta exigencia."
@@ -131,7 +131,7 @@ export const translations = {
     },
     contact: {
       title: "Contacto",
-      desc: "¿Buscas asegurar tu infraestructura o un perfil versátil para tu equipo Blue Team? Usa el formulario o escríbeme directamente a <strong>danimarpas4@gmail.com</strong>.",
+      desc: "¿Buscas asegurar tu infraestructura o un perfil versátil para tu equipo Blue Team? Usa el formulario o escríbeme directamente a <span class='email-copy font-medium text-emerald-500 cursor-pointer hover:text-emerald-400 transition-colors' title='Copiar al portapapeles'>danimarpas4@gmail.com</span>.",
       name: "Nombre",
       namePh: "Introduce tu nombre",
       email: "Email",
@@ -156,7 +156,7 @@ export const translations = {
       p2: "I apply military values of <strong>discipline, leadership, and operational security</strong> to cybersecurity. I am currently specializing in Blue Team, leaning on my development knowledge to understand technology in depth.",
       p3: "My goal is to integrate this technical training and my defensive mindset into the tech sector, preparing to bring real value to <strong>Security Operations Centers (SOC) and Incident Response teams</strong>.",
       stack: "Knowledge Base",
-      download: "Download Resume",
+      download: "View Resume",
       thmTitle: "TryHackMe Profile",
       thmDesc: "Continuous training in real-world Cybersecurity environments."
     },
@@ -164,7 +164,7 @@ export const translations = {
       title: "Experience & Education",
       jobs: [
         {
-          role: "Communications NCO & Tactical Operator",
+          role: "Communications Manager & Tactical Operator",
           org: "NATO Mission (Slovakia)",
           date: "Dec 2024 - Jun 2025",
           desc: "International deployment. Managed secure tactical communications networks and operated under strict protocols in high-stress environments."
@@ -273,7 +273,7 @@ export const translations = {
     },
     contact: {
       title: "Contact",
-      desc: "Looking to secure your infrastructure or a versatile profile for your Blue Team? Use the form below or email me directly at <strong>danimarpas4@gmail.com</strong>.",
+      desc: "Looking to secure your infrastructure or a versatile profile for your Blue Team? Use the form below or email me directly at <span class='email-copy font-medium text-emerald-500 cursor-pointer hover:text-emerald-400 transition-colors' title='Click to copy'>danimarpas4@gmail.com</span>.",
       name: "Name",
       namePh: "Enter your name",
       email: "Email",

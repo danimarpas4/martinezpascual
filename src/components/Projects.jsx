@@ -39,6 +39,7 @@ const Projects = ({ lang }) => {
     if (idx === 0) {
       return (
         <img 
+          loading="lazy"
           src="/promilitar-transparent.png" 
           alt="ProMilitar" 
           className="h-16 md:h-20 object-contain group-hover:scale-110 transition-transform duration-700 opacity-90 group-hover:opacity-100" 
@@ -54,6 +55,7 @@ const Projects = ({ lang }) => {
     } else if (idx === 2) {
       return (
         <img 
+          loading="lazy"
           src="/mando-transparent.png" 
           alt="Mando APP" 
           className="h-14 md:h-16 object-contain group-hover:scale-110 transition-transform duration-700 opacity-90 group-hover:opacity-100" 

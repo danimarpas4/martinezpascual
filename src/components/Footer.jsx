@@ -7,15 +7,15 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
         
         <div className="flex space-x-8 mb-8">
-          <a href="#" className="text-gray-500 hover:text-white transition-colors duration-300">
+          <a href="https://github.com/danimarpas4" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors duration-300">
             <span className="sr-only">GitHub</span>
             <Github className="w-5 h-5" />
           </a>
-          <a href="#" className="text-gray-500 hover:text-white transition-colors duration-300">
+          <a href="https://www.linkedin.com/in/danimarpas4" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors duration-300">
             <span className="sr-only">LinkedIn</span>
             <Linkedin className="w-5 h-5" />
           </a>
-          <a href="#" className="text-gray-500 hover:text-white transition-colors duration-300">
+          <a href="mailto:danimarpas4@gmail.com" className="text-gray-500 hover:text-white transition-colors duration-300">
             <span className="sr-only">Email</span>
             <Mail className="w-5 h-5" />
           </a>

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Send } from 'lucide-react';
 import { translations } from '../translations';
 import gsap from 'gsap';
@@ -13,7 +13,17 @@ const Contact = ({ lang }) => {
   const container = useRef(null);
   
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [status, setStatus] = useState('idle'); // idle, loading, success
+  const [status, setStatus] = useState('idle'); // idle, loading, success, error
+  const [errorMessage, setErrorMessage] = useState('');
+  const [emailCopied, setEmailCopied] = useState(false);
+
+  const handleDescClick = (e) => {
+    if (e.target.classList.contains('email-copy')) {
+      navigator.clipboard.writeText('danimarpas4@gmail.com');
+      setEmailCopied(true);
+      setTimeout(() => setEmailCopied(false), 3000);
+    }
+  };
 
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
@@ -24,12 +34,14 @@ const Contact = ({ lang }) => {
     if (!formData.name || !formData.email || !formData.message) return;
     
     setStatus('loading');
+    setErrorMessage('');
     
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch('https://formspree.io/f/xaenwgrg', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
         },
         body: JSON.stringify(formData)
       });
@@ -39,12 +51,14 @@ const Contact = ({ lang }) => {
         setFormData({ name: '', email: '', message: '' });
         setTimeout(() => setStatus('idle'), 3000);
       } else {
-        setStatus('idle');
-        alert("Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.");
+        setStatus('error');
+        setErrorMessage("Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.");
+        setTimeout(() => setStatus('idle'), 5000);
       }
     } catch (error) {
-      setStatus('idle');
-      alert("No se pudo conectar con el servidor.");
+      setStatus('error');
+      setErrorMessage("No se pudo conectar con el servidor.");
+      setTimeout(() => setStatus('idle'), 5000);
     }
   };
 
@@ -79,7 +93,14 @@ const Contact = ({ lang }) => {
         
         <div className="flex flex-col items-center mb-16 text-center gsap-reveal-contact">
           <h2 className="text-4xl md:text-6xl font-semibold text-white mb-6 tracking-tighter">{t.title}</h2>
-          <p className="text-gray-400 text-lg font-light tracking-wide max-w-xl" dangerouslySetInnerHTML={{ __html: t.desc }}></p>
+          <div className="relative">
+            <p className="text-gray-400 text-lg font-light tracking-wide max-w-xl" dangerouslySetInnerHTML={{ __html: t.desc }} onClick={handleDescClick}></p>
+            {emailCopied && (
+              <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-emerald-500/20 text-emerald-400 border border-emerald-500/50 px-3 py-1 text-sm rounded-full animate-bounce">
+                {lang === 'ES' ? '¡Email copiado!' : 'Email copied!'}
+              </div>
+            )}
+          </div>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6 bg-[#151516] p-8 md:p-10 rounded-[2rem] border border-white/5 gsap-reveal-contact relative">
@@ -93,7 +114,7 @@ const Contact = ({ lang }) => {
                 value={formData.name}
                 onChange={handleInputChange}
                 placeholder={t.namePh}
-                disabled={status !== 'idle'}
+                disabled={status === 'loading' || status === 'success'}
                 className="w-full px-5 py-4 bg-[#1c1c1e] text-white border border-white/5 rounded-xl focus:ring-1 focus:ring-white/20 focus:border-white/20 transition-all duration-300 outline-none font-light placeholder:text-gray-600 disabled:opacity-50"
               />
             </div>
@@ -106,7 +127,7 @@ const Contact = ({ lang }) => {
                 value={formData.email}
                 onChange={handleInputChange}
                 placeholder={t.emailPh}
-                disabled={status !== 'idle'}
+                disabled={status === 'loading' || status === 'success'}
                 className="w-full px-5 py-4 bg-[#1c1c1e] text-white border border-white/5 rounded-xl focus:ring-1 focus:ring-white/20 focus:border-white/20 transition-all duration-300 outline-none font-light placeholder:text-gray-600 disabled:opacity-50"
               />
             </div>
@@ -121,24 +142,32 @@ const Contact = ({ lang }) => {
               value={formData.message}
               onChange={handleInputChange}
               placeholder={t.msgPh}
-              disabled={status !== 'idle'}
+              disabled={status === 'loading' || status === 'success'}
               className="w-full px-5 py-4 bg-[#1c1c1e] text-white border border-white/5 rounded-xl focus:ring-1 focus:ring-white/20 focus:border-white/20 transition-all duration-300 outline-none font-light resize-none placeholder:text-gray-600 disabled:opacity-50"
             ></textarea>
           </div>
 
+          <input type="text" name="_gotcha" style={{ display: "none" }} tabIndex="-1" autoComplete="off" />
+
           <button 
             type="submit"
-            disabled={status !== 'idle'}
+            disabled={status === 'loading' || status === 'success'}
             className={`w-full py-4 font-semibold rounded-xl transition-all duration-500 flex items-center justify-center gap-2 mt-4 
-              ${status === 'idle' ? 'bg-white text-black hover:bg-gray-200' : ''}
+              ${(status === 'idle' || status === 'error') ? 'bg-white text-black hover:bg-gray-200' : ''}
               ${status === 'loading' ? 'bg-gray-800 text-white cursor-not-allowed' : ''}
               ${status === 'success' ? 'bg-emerald-500 text-white' : ''}
             `}
           >
-            {status === 'idle' && <><Send className="w-4 h-4" /> {t.send}</>}
+            {(status === 'idle' || status === 'error') && <><Send className="w-4 h-4" /> {t.send}</>}
             {status === 'loading' && <span className="animate-pulse">Enviando...</span>}
             {status === 'success' && <span>✓ Mensaje Enviado</span>}
           </button>
+          
+          {status === 'error' && (
+            <div className="text-red-500 text-sm text-center mt-3 font-medium transition-all duration-300">
+              {errorMessage}
+            </div>
+          )}
         </form>
       </div>
     </section>

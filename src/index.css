@@ -14,9 +14,7 @@
     @apply tracking-tight;
   }
   
-  ::selection {
-    @apply bg-white/30 text-white;
-  }
+  
 }
 
 @layer utilities {
@@ -37,11 +35,11 @@
   background: #000000;
 }
 ::-webkit-scrollbar-thumb {
-  background: #333333;
+  background: #27272a; /* zinc-800 */
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #555555;
+  background: #10b981; /* emerald-500 */
 }
 
 html.lenis, html.lenis body {
@@ -58,4 +56,38 @@ html.lenis, html.lenis body {
 }
 .lenis.lenis-smooth iframe {
   pointer-events: none;
+}
+
+@media print {
+  /* Hide elements irrelevant for paper */
+  nav, header, footer, #back-to-top, #scroll-progress, .contact-section, button, #contacto {
+    display: none !important;
+  }
+  
+  /* Reset backgrounds for ink saving */
+  body, main, div, section {
+    background: white !important;
+    color: black !important;
+  }
+  
+  /* Avoid page breaks inside experience/project cards */
+  .glass-panel, .card {
+    background: white !important;
+    border: 1px solid #ccc !important;
+    color: black !important;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    margin-bottom: 20px !important;
+    box-shadow: none !important;
+  }
+  
+  /* Make all text dark */
+  * {
+    color: black !important;
+  }
+  
+  /* Preserve accent colors in print for highlights */
+  .text-emerald-400 {
+    color: #059669 !important; /* emerald-600 for print */ 
+  }
 }

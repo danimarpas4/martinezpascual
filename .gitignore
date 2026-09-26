@@ -1,0 +1,17 @@
+# Dependencias
+node_modules/
+
+# Build (se regenera con npm run build)
+dist/
+
+# Servidor del tracker de visitas: contiene el token del bot de Telegram
+tracker_api.py
+
+# Entorno
+.env
+.env.*
+!.env.example
+
+# Sistema
+.DS_Store
+*.log

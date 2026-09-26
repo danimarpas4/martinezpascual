@@ -5,6 +5,15 @@ import { Printer, X } from 'lucide-react';
 const CVPrint = ({ lang, onClose }) => {
   const t = translations[lang];
 
+  const handlePrint = () => {
+    const originalTitle = document.title;
+    document.title = 'CV_Daniel_Martinez_Pascual';
+    window.print();
+    document.title = originalTitle;
+  };
+
+
+
   return (
     <div className="bg-[#0c0c0e] min-h-screen relative flex flex-col items-center py-20">
       
@@ -13,7 +22,7 @@ const CVPrint = ({ lang, onClose }) => {
         <span className="text-white font-medium text-xs md:text-sm truncate w-full md:w-auto text-center md:text-left">Curriculum_Vitae_DMP.pdf</span>
         <div className="flex w-full md:w-auto gap-2 md:gap-4 justify-center">
           <button 
-            onClick={() => window.print()} 
+            onClick={handlePrint} 
             className="flex-1 md:flex-none flex justify-center items-center gap-2 bg-white text-black px-3 py-2 md:px-4 md:py-2 rounded-lg font-medium text-xs md:text-sm hover:bg-gray-200 transition-colors"
           >
             <Printer className="w-4 h-4" /> {lang === 'ES' ? 'Guardar PDF' : 'Save PDF'}
