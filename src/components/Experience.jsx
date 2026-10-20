@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Briefcase, GraduationCap, Calendar, Award, ExternalLink, Globe, ShieldCheck, Target } from 'lucide-react';
+import { Briefcase, GraduationCap, Calendar, Award, ExternalLink, Globe, ShieldCheck, Target, ArrowRight } from 'lucide-react';
 import { translations } from '../translations';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
@@ -89,6 +89,70 @@ const Experience = ({ lang }) => {
             </div>
           </div>
         </div>
+
+        {/* Transferable Skills Matrix (Tactical to SOC Bridge) */}
+        {t.matrixItems && (
+          <div className="mt-20 lg:mt-28 border-t border-white/5 pt-20">
+            <div className="mb-12 text-center lg:text-left gsap-reveal-exp">
+              <span className="px-3.5 py-1 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs rounded-full font-mono font-medium tracking-wider uppercase mb-4 inline-block">
+                {lang === 'ES' ? 'Transición Militar → SOC' : 'Military → SOC Transition'}
+              </span>
+              <h3 className="text-2xl md:text-4xl font-semibold text-white tracking-tight mb-3">
+                {t.matrixTitle}
+              </h3>
+              <p className="text-gray-400 text-base md:text-lg font-light max-w-3xl">
+                {t.matrixSubtitle}
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {t.matrixItems.map((item, idx) => (
+                <div 
+                  key={idx} 
+                  className="gsap-reveal-exp bg-[#151516] p-7 rounded-[2rem] border border-white/5 flex flex-col justify-between transition-all duration-700 hover:scale-[1.02] hover:bg-[#1a1a1d] hover:border-emerald-500/30 group relative overflow-hidden"
+                >
+                  <div className="absolute top-0 right-0 w-28 h-28 bg-emerald-500/5 rounded-full blur-2xl group-hover:bg-emerald-500/10 transition-colors pointer-events-none"></div>
+
+                  <div>
+                    <div className="flex items-center justify-between gap-2 mb-6">
+                      <span className="px-2.5 py-1 bg-white/5 text-gray-400 text-[11px] font-mono rounded-lg border border-white/5 group-hover:border-emerald-500/30 group-hover:text-emerald-400 transition-colors">
+                        {item.tag}
+                      </span>
+                      <span className="text-xs text-gray-600 font-mono">0{idx + 1}</span>
+                    </div>
+
+                    {/* Military Origin */}
+                    <div className="text-xs text-gray-400 font-medium mb-1 tracking-wide flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-gray-500"></span>
+                      {lang === 'ES' ? 'Origen Táctico' : 'Tactical Origin'}
+                    </div>
+                    <div className="text-gray-300 font-medium text-sm mb-3">
+                      {item.military}
+                    </div>
+
+                    {/* Connection Arrow */}
+                    <div className="flex items-center gap-2 py-1 text-emerald-400 text-xs font-mono mb-3">
+                      <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                      <span className="text-[11px] tracking-wider uppercase font-semibold text-emerald-400">
+                        {lang === 'ES' ? 'Aplicación SOC' : 'SOC Application'}
+                      </span>
+                    </div>
+
+                    {/* SOC Destination */}
+                    <h4 className="text-white font-semibold text-lg tracking-tight mb-3 group-hover:text-emerald-300 transition-colors">
+                      {item.soc}
+                    </h4>
+
+                    {/* Impact Description */}
+                    <p className="text-gray-400 text-xs leading-relaxed font-light">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Certifications (Wall of Trust) */}
         <div className="mt-20 lg:mt-32 border-t border-white/5 pt-20">

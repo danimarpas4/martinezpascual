@@ -23,6 +23,34 @@ export const translations = {
     },
     exp: {
       title: "Experiencia y Formación",
+      matrixTitle: "Puente Operacional: De Fuerzas Armadas a Ciberdefensa SOC",
+      matrixSubtitle: "Competencias críticas forjadas en despliegues tácticos y su traslación directa al entorno de seguridad técnica.",
+      matrixItems: [
+        {
+          military: "Procedimientos Estándar (SOP)",
+          soc: "Playbooks & Runbooks SOC",
+          tag: "Rigor Doctrinal",
+          desc: "Operación disciplinada basada en doctrinas, listas de verificación estandarizadas y trazabilidad de acciones ante incidentes críticos."
+        },
+        {
+          military: "Gestión de Crisis & Triage",
+          soc: "Respuesta a Incidentes (IR)",
+          tag: "Control de Estrés",
+          desc: "Toma de decisiones rápida y metódica en escenarios de alta incertidumbre y contención de amenazas bajo presión continua."
+        },
+        {
+          military: "Seguridad Operacional (OPSEC)",
+          soc: "Need-to-Know & Mínimo Privilegio",
+          tag: "Protección de Activos",
+          desc: "Cultura estricta de compartimentación de datos, control riguroso de accesos e higiene digital integrada en el ADN profesional."
+        },
+        {
+          military: "Transmisiones & Misiones 24/7",
+          soc: "Monitorización de Red & Turnos",
+          tag: "Resiliencia 24/7",
+          desc: "Experiencia en enlaces de comunicaciones tácticas seguras de la OTAN y resistencia probada en rotaciones de guardia continua."
+        }
+      ],
       jobs: [
         {
           role: "Encargado de Transmisiones y Operador Táctico",
@@ -189,6 +217,34 @@ export const translations = {
     },
     exp: {
       title: "Experience & Education",
+      matrixTitle: "Operational Bridge: From Armed Forces to SOC Defense",
+      matrixSubtitle: "Critical competencies forged in tactical deployments and their direct translation to technical security operations.",
+      matrixItems: [
+        {
+          military: "Standard Operating Procedures (SOP)",
+          soc: "SOC Playbooks & Runbooks",
+          tag: "Doctrinal Rigor",
+          desc: "Disciplined execution based on doctrines, standardized checklists, and end-to-end event traceability."
+        },
+        {
+          military: "Crisis Management & Triage",
+          soc: "Incident Response (IR)",
+          tag: "Stress Control",
+          desc: "Rapid and methodical decision-making in volatile environments to triage and contain threats under pressure."
+        },
+        {
+          military: "Operational Security (OPSEC)",
+          soc: "Need-to-Know & Least Privilege",
+          tag: "Asset Protection",
+          desc: "Strict culture of data compartmentalization, tight access control, and digital hygiene embedded into daily routine."
+        },
+        {
+          military: "Tactical Comms & 24/7 Missions",
+          soc: "Network Monitoring & Shifts",
+          tag: "24/7 Resilience",
+          desc: "Experience in secure NATO communication networks and proven endurance in continuous monitoring rotations."
+        }
+      ],
       jobs: [
         {
           role: "Communications Manager & Tactical Operator",
