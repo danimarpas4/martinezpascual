@@ -1,4 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 import { Menu, X } from 'lucide-react';
 import { translations } from '../translations';
 
@@ -10,17 +14,41 @@ const Navbar = ({ lang, setLang }) => {
   const t = translations[lang].nav;
   
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-      // Calculate progress
-      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrolledAmt = height > 0 ? (winScroll / height) * 100 : 0;
-      setScrollProgress(scrolledAmt);
-
+    const updateProgress = (pct, scrollY) => {
+      const clamped = Math.min(100, Math.max(0, pct));
+      setScrollProgress(clamped);
+      setScrolled(scrollY > 20);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    // 1. GSAP ScrollTrigger listener (synced directly with Lenis smooth scroll)
+    const st = ScrollTrigger.create({
+      start: 'top top',
+      end: 'bottom bottom',
+      onUpdate: (self) => {
+        updateProgress(self.progress * 100, self.scroll());
+      }
+    });
+
+    // 2. Native window scroll listener fallback
+    const handleScroll = () => {
+      const scrollY = window.pageYOffset || document.documentElement.scrollTop || window.scrollY || 0;
+      const docHeight = Math.max(
+        document.body.scrollHeight, document.documentElement.scrollHeight,
+        document.body.offsetHeight, document.documentElement.offsetHeight,
+        document.body.clientHeight, document.documentElement.clientHeight
+      ) - window.innerHeight;
+      const pct = docHeight > 0 ? (scrollY / docHeight) * 100 : 0;
+      updateProgress(pct, scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    // Initial call
+    setTimeout(handleScroll, 100);
+
+    return () => {
+      st.kill();
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   useEffect(() => {
@@ -133,12 +161,16 @@ const Navbar = ({ lang, setLang }) => {
         </div>
       </nav>
     </header>
-      {/* Scroll Progress Bar */}
-      <div className="w-full h-[3px] bg-transparent fixed top-0 left-0 z-[100] pointer-events-none">
+      {/* Scroll Progress Bar (Terminal Emerald #34d399 glow) */}
+      <div className="w-full h-[3px] bg-emerald-950/20 fixed top-0 left-0 z-[100] pointer-events-none">
         <div 
-          className="h-full bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.8)] transition-all duration-75" 
+          className="h-full bg-emerald-400 shadow-[0_0_12px_#34d399,0_0_4px_#10b981] transition-all duration-75 relative" 
           style={{ width: `${scrollProgress}%` }}
-        ></div>
+        >
+          {scrollProgress > 0 && scrollProgress < 100 && (
+            <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_8px_#34d399]"></div>
+          )}
+        </div>
       </div>
     </>
 

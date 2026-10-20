@@ -93,11 +93,14 @@ html.lenis, html.lenis body {
 }
 
 /* --- Optimizacion de nitidez y renderizado de fuentes --- */
-html, body {
+html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
+}
+body {
+  overflow-x: clip;
 }
 
 /* Evitar desenfoque de subpixeles en capas aceleradas */
