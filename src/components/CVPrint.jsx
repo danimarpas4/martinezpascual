@@ -1,120 +1,57 @@
-import React, { useEffect, useRef } from 'react';
-import { translations } from '../translations';
-import { Printer, X } from 'lucide-react';
+import React from 'react';
+import { X, Download, ExternalLink } from 'lucide-react';
 
 const CVPrint = ({ lang, onClose }) => {
-  const t = translations[lang];
-
-  const handlePrint = () => {
-    const originalTitle = document.title;
-    document.title = 'DANIEL_MARTÍNEZ_PASCUAL_v3';
-    window.print();
-    document.title = originalTitle;
-  };
-
-
-
   return (
-    <div className="bg-[#0c0c0e] min-h-screen relative flex flex-col items-center py-20">
-      
+    <div className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl flex flex-col items-center p-3 sm:p-6 overflow-hidden">
       {/* Control Bar */}
-      <div className="fixed top-0 left-0 w-full bg-[#151516] border-b border-white/10 p-3 md:p-4 flex flex-col md:flex-row justify-between items-center gap-3 md:gap-0 z-50 shadow-2xl print:hidden">
-        <span className="text-white font-medium text-xs md:text-sm truncate w-full md:w-auto text-center md:text-left">DANIEL_MARTÍNEZ_PASCUAL_v3.pdf</span>
-        <div className="flex w-full md:w-auto gap-2 md:gap-4 justify-center">
-          <button 
-            onClick={handlePrint} 
-            className="flex-1 md:flex-none flex justify-center items-center gap-2 bg-white text-black px-3 py-2 md:px-4 md:py-2 rounded-lg font-medium text-xs md:text-sm hover:bg-gray-200 transition-colors"
+      <div className="w-full max-w-5xl flex flex-wrap justify-between items-center gap-3 mb-4 bg-[#151516] border border-white/10 px-5 py-3 rounded-2xl shadow-2xl">
+        <div className="flex items-center gap-3">
+          <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span className="text-white font-medium text-xs sm:text-sm font-mono truncate max-w-[200px] sm:max-w-none">
+            DANIEL_MARTÍNEZ_PASCUAL_v3.pdf
+          </span>
+        </div>
+        
+        <div className="flex items-center gap-2 sm:gap-3">
+          <a 
+            href="/DANIEL_MARTÍNEZ_PASCUAL_v3.pdf" 
+            download="DANIEL_MARTÍNEZ_PASCUAL_v3.pdf"
+            className="flex items-center gap-2 bg-white text-black px-3 sm:px-4 py-2 rounded-xl font-medium text-xs hover:bg-gray-200 transition-colors shadow-lg"
           >
-            <Printer className="w-4 h-4" /> {lang === 'ES' ? 'Guardar PDF' : 'Save PDF'}
-          </button>
-          <button 
-            onClick={onClose} 
-            className="flex-1 md:flex-none flex justify-center items-center gap-2 bg-red-500/10 text-red-500 px-3 py-2 md:px-4 md:py-2 rounded-lg font-medium text-xs md:text-sm hover:bg-red-500 hover:text-white transition-colors"
-          >
-            <X className="w-4 h-4" /> {lang === 'ES' ? 'Volver' : 'Back'}
-          </button>
-        </div>
-      </div>
-
-      {/* CV A4 Paper */}
-      <div className="bg-white text-black w-full max-w-[21cm] min-h-[29.7cm] p-6 md:p-[2cm] shadow-2xl print:shadow-none print:p-0 print:m-0 mt-20 md:mt-0">
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 md:gap-0 border-b-2 border-black pb-4 mb-8">
-        <div>
-          <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-1">Daniel Martínez Pascual</h1>
-          <h2 className="text-lg md:text-xl text-gray-600">{t.hero.subtitle}</h2>
-        </div>
-        <div className="text-left md:text-right text-xs md:text-sm text-gray-600">
-          <p>github.com/danimarpas4</p>
-          <p>tryhackme.com/p/danimarpas4</p>
-        </div>
-      </div>
-
-      <div className="mb-8">
-        <h3 className="text-lg font-bold border-b border-gray-300 mb-4 uppercase tracking-wider">{lang === 'ES' ? 'Perfil' : 'Profile'}</h3>
-        <p className="text-sm leading-relaxed">{t.hero.desc} {t.about.p3.replace(/<\/?[^>]+(>|$)/g, "")}</p>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-        <div className="col-span-1 md:col-span-2">
-          <h3 className="text-lg font-bold border-b border-gray-300 mb-4 uppercase tracking-wider">{t.exp.title}</h3>
+            <Download className="w-3.5 h-3.5" />
+            <span>{lang === 'ES' ? 'Descargar' : 'Download'}</span>
+          </a>
           
-          <div className="mb-6">
-            <h4 className="font-bold">{t.exp.jobs[0].role}</h4>
-            <div className="flex justify-between text-sm text-gray-600 mb-2">
-              <span>{t.exp.jobs[0].org}</span>
-              <span>{t.exp.jobs[0].date}</span>
-            </div>
-            <p className="text-sm">{t.exp.jobs[0].desc}</p>
-          </div>
-
-          <div className="mb-6">
-            <h4 className="font-bold">{t.exp.jobs[1].role}</h4>
-            <div className="flex justify-between text-sm text-gray-600 mb-2">
-              <span>{t.exp.jobs[1].org}</span>
-              <span>{t.exp.jobs[1].date}</span>
-            </div>
-            <p className="text-sm">{t.exp.jobs[1].desc}</p>
-          </div>
-
-          <div className="mb-6">
-            <h4 className="font-bold">{t.exp.jobs[2].role}</h4>
-            <div className="flex justify-between text-sm text-gray-600 mb-2">
-              <span>{t.exp.jobs[2].org}</span>
-              <span>{t.exp.jobs[2].date}</span>
-            </div>
-            <p className="text-sm">{t.exp.jobs[2].desc}</p>
-          </div>
-        </div>
-
-        <div>
-          <h3 className="text-lg font-bold border-b border-gray-300 mb-4 uppercase tracking-wider">{t.exp.certificationsTitle}</h3>
-          {t.exp.certifications && t.exp.certifications.map((cert, i) => (
-            <div key={i} className="mb-3">
-              <h4 className="font-bold text-sm leading-tight">{cert.title}</h4>
-              <p className="text-xs text-emerald-700 font-semibold">{cert.badge}</p>
-              <p className="text-xs text-gray-600 mt-0.5">{cert.desc}</p>
-            </div>
-          ))}
-
-          <h3 className="text-lg font-bold border-b border-gray-300 mb-4 mt-6 uppercase tracking-wider">{lang === 'ES' ? 'Educación' : 'Education'}</h3>
-          {t.exp.edu.map((edu, i) => (
-            <div key={i} className="mb-3">
-              <h4 className="font-bold text-sm leading-tight">{edu.title}</h4>
-              <p className="text-xs text-gray-600 mt-0.5">{edu.org}</p>
-              <p className="text-xs text-gray-500">{edu.date}</p>
-            </div>
-          ))}
-
-          <h3 className="text-lg font-bold border-b border-gray-300 mb-4 mt-6 uppercase tracking-wider">{t.exp.languagesTitle}</h3>
-          {t.exp.languages.map((langItem, i) => (
-            <div key={i} className="mb-4">
-              <h4 className="font-bold text-sm">{langItem.title}</h4>
-              <p className="text-xs text-gray-600 mt-1">{langItem.badge}</p>
-            </div>
-          ))}
+          <a 
+            href="/DANIEL_MARTÍNEZ_PASCUAL_v3.pdf" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 bg-white/10 text-white px-3 sm:px-4 py-2 rounded-xl font-medium text-xs hover:bg-white/20 transition-colors"
+          >
+            <ExternalLink className="w-3.5 h-3.5 text-emerald-400" />
+            <span className="hidden sm:inline">{lang === 'ES' ? 'Pestaña nueva' : 'New tab'}</span>
+          </a>
+          
+          <button 
+            type="button"
+            onClick={onClose} 
+            className="flex items-center gap-1.5 bg-red-500/10 text-red-400 border border-red-500/20 px-3 sm:px-4 py-2 rounded-xl font-medium text-xs hover:bg-red-500 hover:text-white transition-colors"
+          >
+            <X className="w-3.5 h-3.5" />
+            <span>{lang === 'ES' ? 'Cerrar' : 'Close'}</span>
+          </button>
         </div>
       </div>
-    </div>
+
+      {/* Embedded Real PDF Viewer */}
+      <div className="w-full max-w-5xl flex-1 bg-[#151516] border border-white/10 rounded-2xl overflow-hidden shadow-2xl relative">
+        <iframe 
+          src="/DANIEL_MARTÍNEZ_PASCUAL_v3.pdf#toolbar=1" 
+          title="CV Daniel Martinez Pascual v3"
+          className="w-full h-full border-none"
+        />
+      </div>
     </div>
   );
 };

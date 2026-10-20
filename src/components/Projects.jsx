@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { ExternalLink, Github, Bot, Server, Shield, Database, Layout } from 'lucide-react';
+import { ExternalLink, Github, Bot, Server, Shield, Database, Layout, Lock, X } from 'lucide-react';
 import { useState } from 'react';
 import { translations } from '../translations';
 import gsap from 'gsap';
@@ -129,7 +129,17 @@ const Projects = ({ lang }) => {
       {activeArch !== null && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-md" onClick={() => setActiveArch(null)}>
           <div className="bg-[#0c0c0e] border border-white/10 rounded-2xl p-8 max-w-4xl w-full" onClick={e => e.stopPropagation()}>
-            <h3 className="text-2xl font-semibold text-white mb-8">{t.items[activeArch].title} - Blueprint</h3>
+            <div className="flex justify-between items-center mb-8 border-b border-white/10 pb-4">
+              <h3 className="text-2xl font-semibold text-white">{t.items[activeArch].title} - Blueprint</h3>
+              <button 
+                type="button"
+                onClick={() => setActiveArch(null)}
+                className="p-2 text-gray-400 hover:text-white hover:bg-white/10 rounded-xl transition-colors"
+                title="Cerrar"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
             
             <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 py-12">
               

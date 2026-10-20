@@ -71,18 +71,17 @@ const About = ({ lang, setShowCV }) => {
               
               <div className="flex flex-col sm:flex-row gap-2.5 w-full">
                 <button 
+                  type="button"
                   onClick={() => setShowCV(true)}
                   className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-white text-black hover:bg-gray-200 rounded-xl transition-all duration-300 font-medium text-xs tracking-wide shadow-lg group/btn"
                 >
                   <FileText className="w-4 h-4 text-emerald-600 transition-transform group-hover/btn:scale-110" />
-                  <span>{t.viewCV || "Ver CV online"}</span>
+                  <span>{t.viewCV || "Ver PDF"}</span>
                 </button>
                 
                 <a 
                   href="/DANIEL_MARTÍNEZ_PASCUAL_v3.pdf" 
                   download="DANIEL_MARTÍNEZ_PASCUAL_v3.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-black/50 hover:bg-white/10 text-white backdrop-blur-xl border border-white/10 hover:border-white/20 rounded-xl transition-all duration-300 font-medium text-xs tracking-wide group/dl"
                 >
                   <Download className="w-4 h-4 text-emerald-400 transition-transform group-hover/dl:translate-y-0.5" />
