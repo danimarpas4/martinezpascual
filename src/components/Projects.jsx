@@ -135,40 +135,50 @@ const Projects = ({ lang }) => {
               
               {/* Client */}
               <div className="flex flex-col items-center">
-                <div className="w-16 h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-4">
-                  <Layout className="w-8 h-8 text-gray-400" />
+                <div className="w-14 h-14 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-3">
+                  <Layout className="w-6 h-6 text-gray-400" />
                 </div>
-                <span className="text-sm text-gray-400 font-mono">Client (React)</span>
+                <span className="text-xs text-gray-400 font-mono">Client (Web)</span>
               </div>
               
-              <div className="hidden md:block w-16 border-t-2 border-dashed border-gray-600"></div>
+              <div className="hidden md:block w-8 border-t-2 border-dashed border-gray-600"></div>
+              
+              {/* Perimeter Defense */}
+              <div className="flex flex-col items-center">
+                <div className="w-14 h-14 rounded-lg bg-red-500/10 border border-red-500/30 flex items-center justify-center mb-3">
+                  <Lock className="w-6 h-6 text-red-400" />
+                </div>
+                <span className="text-xs text-red-400 font-mono">UFW / Fail2ban</span>
+              </div>
+              
+              <div className="hidden md:block w-8 border-t-2 border-dashed border-gray-600"></div>
               
               {/* Firewall / Nginx */}
               <div className="flex flex-col items-center">
-                <div className="w-16 h-16 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center mb-4">
-                  <Shield className="w-8 h-8 text-emerald-400" />
+                <div className="w-14 h-14 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center mb-3">
+                  <Shield className="w-6 h-6 text-emerald-400" />
                 </div>
-                <span className="text-sm text-emerald-400 font-mono">Nginx Proxy</span>
+                <span className="text-xs text-emerald-400 font-mono">Nginx SSL Proxy</span>
               </div>
               
-              <div className="hidden md:block w-16 border-t-2 border-dashed border-gray-600"></div>
+              <div className="hidden md:block w-8 border-t-2 border-dashed border-gray-600"></div>
               
               {/* App Server */}
               <div className="flex flex-col items-center">
-                <div className="w-16 h-16 rounded-lg bg-blue-500/10 border border-blue-500/30 flex items-center justify-center mb-4">
-                  <Server className="w-8 h-8 text-blue-400" />
+                <div className="w-14 h-14 rounded-lg bg-blue-500/10 border border-blue-500/30 flex items-center justify-center mb-3">
+                  <Server className="w-6 h-6 text-blue-400" />
                 </div>
-                <span className="text-sm text-blue-400 font-mono">Docker App</span>
+                <span className="text-xs text-blue-400 font-mono">Docker App</span>
               </div>
               
-              <div className="hidden md:block w-16 border-t-2 border-dashed border-gray-600"></div>
+              <div className="hidden md:block w-8 border-t-2 border-dashed border-gray-600"></div>
               
               {/* Database */}
               <div className="flex flex-col items-center">
-                <div className="w-16 h-16 rounded-lg bg-rose-500/10 border border-rose-500/30 flex items-center justify-center mb-4">
-                  <Database className="w-8 h-8 text-rose-400" />
+                <div className="w-14 h-14 rounded-lg bg-purple-500/10 border border-purple-500/30 flex items-center justify-center mb-3">
+                  <Database className="w-6 h-6 text-purple-400" />
                 </div>
-                <span className="text-sm text-rose-400 font-mono">Database</span>
+                <span className="text-xs text-purple-400 font-mono">Database</span>
               </div>
               
             </div>

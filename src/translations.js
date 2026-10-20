@@ -3,7 +3,7 @@ export const translations = {
     nav: { home: "Inicio", about: "Sobre mí", exp: "Experiencia", projects: "Proyectos", contact: "Contacto" },
     hero: {
       title: "Blue Team.",
-      subtitle: "Especialista en Seguridad con base Full-Stack",
+      subtitle: "Aspirante a Analista SOC (N1) · Blue Team · Ciberdefensa",
       desc: "De Operador Táctico a Defensor de Infraestructuras (Blue Team). Aplico la disciplina militar, la gestión de crisis y la mentalidad defensiva forjada en despliegues internacionales para proteger el núcleo del software y aportar valor inmediato en Centros de Operaciones de Seguridad (SOC).",
       btnProjects: "Ver Proyectos",
       btnContact: "Contactar"
@@ -16,7 +16,8 @@ export const translations = {
       stack: "Base de Conocimientos",
       download: "Ver CV",
       thmTitle: "Perfil de TryHackMe",
-      thmDesc: "Entrenamiento continuo en entornos reales de Ciberseguridad."
+      thmBadge: "Top 5% Global",
+      thmDesc: "Entrenamiento práctico continuo (Top 5% Global) en ciberdefensa, análisis de logs y resolución de escenarios SOC."
     },
     exp: {
       title: "Experiencia y Formación",
@@ -124,10 +125,10 @@ export const translations = {
       title: "Proyectos Destacados",
       items: [
         {
-          title: "ProMilitar - Academia Online",
-          prob: "Plataforma web educativa orientada a la preparación militar, ofreciendo un entorno completo con tests, temarios, instructora IA y planificación a medida.",
-          det: "Arquitectura robusta desplegada en VPS de Hetzner con proxy inverso Nginx. Integra un frontend responsivo y un backend centralizado con despliegue continuo mediante Docker.",
-          tech: ["Django", "PostgreSQL", "Docker", "Tailwind CSS", "Nginx", "VPS"],
+          title: "ProMilitar - Infraestructura & Academia",
+          prob: "Plataforma SaaS en producción con alta concurrencia. Administración integral de servidor VPS en Hetzner con arquitectura securizada.",
+          det: "Hardening de Linux en producción: Nginx proxy inverso con TLS 1.3 (Let's Encrypt), control estricto de accesos SSH por par de claves, firewalling con UFW/iptables, jaulas fail2ban contra fuerza bruta y análisis de logs para detección reactiva de intrusiones.",
+          tech: ["Linux Hardening", "Nginx Proxy", "Fail2ban", "UFW", "Django", "Docker", "PostgreSQL", "VPS"],
           links: [
             { url: "https://promilitar.es", label: "promilitar.es" }
           ]

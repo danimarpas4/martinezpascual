@@ -32,16 +32,45 @@ const Terminal = ({ lang, isOpen, onClose, isInline = false }) => {
     switch (cleanCmd) {
       case 'help':
         newHistory.push({ type: 'system', text: 'Comandos disponibles:' });
-        newHistory.push({ type: 'system', text: '  whoami         - Mostrar identidad actual' });
+        newHistory.push({ type: 'system', text: '  whoami         - Identidad y rol actual' });
+        newHistory.push({ type: 'system', text: '  soc status     - Telemetría y estado de defensas del VPS' });
+        newHistory.push({ type: 'system', text: '  certs          - Certificaciones y formación complementaria' });
+        newHistory.push({ type: 'system', text: '  cv             - Descargar CV v3 en PDF' });
         newHistory.push({ type: 'system', text: '  cat skills.txt - Ver matriz de habilidades' });
-        newHistory.push({ type: 'system', text: '  clear          - Limpiar consola' });
-        newHistory.push({ type: 'system', text: '  sudo hire      - Iniciar protocolo de contratación' });
         newHistory.push({ type: 'system', text: '  writeups       - Ver últimos CTFs resueltos' });
+        newHistory.push({ type: 'system', text: '  sudo hire      - Iniciar protocolo de contratación' });
+        newHistory.push({ type: 'system', text: '  clear          - Limpiar consola' });
         newHistory.push({ type: 'system', text: '  exit           - Cerrar terminal' });
         break;
       case 'whoami':
         newHistory.push({ type: 'system', text: 'daniel_martinez_pascual' });
-        newHistory.push({ type: 'system', text: 'Role: Blue Team Specialist / Full-Stack Developer' });
+        newHistory.push({ type: 'system', text: 'Role: Aspirante a Analista SOC (N1) · Blue Team · Ciberdefensa' });
+        newHistory.push({ type: 'system', text: 'Status: Cabo en activo del Ejército de Tierra (Misiones OTAN/UE)' });
+        break;
+      case 'soc status':
+      case 'status':
+        newHistory.push({ type: 'system', text: '[VPS TELEMETRY - Hetzner Ubuntu 24.04.4 LTS]' });
+        newHistory.push({ type: 'system', text: '  ● HOSTNAME:   promilitar-server (91.98.138.15)' });
+        newHistory.push({ type: 'system', text: '  ● STATUS:     ONLINE / OPERATIONAL' });
+        newHistory.push({ type: 'system', text: '  ● FIREWALL:   UFW Active (Puertos 22, 80, 443 estrictos)' });
+        newHistory.push({ type: 'system', text: '  ● FAIL2BAN:   2 jails activas (sshd, nginx-botsearch)' });
+        newHistory.push({ type: 'system', text: '  ● TLS/SSL:    Let\'s Encrypt TLS 1.3 (HSTS habilitado)' });
+        newHistory.push({ type: 'system', text: '  ● DEFENSE:    SSH ed25519 strictly enforced (password auth off)' });
+        newHistory.push({ type: 'system', text: '  ● AUDIT LOGS: Nginx active error/access log monitoring' });
+        break;
+      case 'certs':
+      case 'certificaciones':
+        newHistory.push({ type: 'system', text: '[CERTIFICACIONES & FORMACIÓN - CV v3]' });
+        newHistory.push({ type: 'system', text: '  [✓] TryHackMe: Pre Security (Completado)' });
+        newHistory.push({ type: 'system', text: '  [✓] TryHackMe: Cyber Security 101 (Completado)' });
+        newHistory.push({ type: 'system', text: '  [⚙] TryHackMe: SOC Level 1 (En curso)' });
+        newHistory.push({ type: 'system', text: '  [✓] Big Data aplicado al negocio (FADE - Nov 2025)' });
+        newHistory.push({ type: 'system', text: '  [🎯] Objetivos: CompTIA Security+ · AWS Cloud · BTL1' });
+        break;
+      case 'cv':
+      case 'download cv':
+        newHistory.push({ type: 'system', text: 'INFO: Abriendo y descargando DANIEL_MARTÍNEZ_PASCUAL_v3.pdf...' });
+        window.open('/DANIEL_MARTÍNEZ_PASCUAL_v3.pdf', '_blank');
         break;
       case 'cat skills.txt':
         newHistory.push({ type: 'system', text: '[DEFENSE]: Ciberseguridad, Monitorización, Análisis de Logs' });

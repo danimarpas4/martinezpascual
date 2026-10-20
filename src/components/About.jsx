@@ -101,9 +101,14 @@ const About = ({ lang, setShowCV }) => {
               className="gsap-reveal bg-[#151516] p-6 lg:p-8 rounded-[2rem] border border-white/5 transition-all duration-700 hover:scale-[1.01] hover:bg-[#1c1c1e] hover:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-6 group relative"
             >
               <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
-                <h4 className="text-white font-medium text-xl mb-1 flex items-center gap-3 tracking-tight">
-                  <Crosshair className="w-5 h-5 text-gray-500 group-hover:text-white transition-colors" /> 
-                  {t.thmTitle}
+                <h4 className="text-white font-medium text-xl mb-1 flex items-center gap-3 tracking-tight flex-wrap">
+                  <Crosshair className="w-5 h-5 text-emerald-400 transition-colors" /> 
+                  <span>{t.thmTitle}</span>
+                  {t.thmBadge && (
+                    <span className="px-2.5 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 rounded-full text-xs font-mono font-medium">
+                      {t.thmBadge}
+                    </span>
+                  )}
                 </h4>
                 <p className="text-gray-400 text-sm font-light max-w-sm mb-2">
                   {t.thmDesc}

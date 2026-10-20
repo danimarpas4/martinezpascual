@@ -87,16 +87,25 @@ const CVPrint = ({ lang, onClose }) => {
         </div>
 
         <div>
-          <h3 className="text-lg font-bold border-b border-gray-300 mb-4 uppercase tracking-wider">{lang === 'ES' ? 'Educación' : 'Education'}</h3>
+          <h3 className="text-lg font-bold border-b border-gray-300 mb-4 uppercase tracking-wider">{t.exp.certificationsTitle}</h3>
+          {t.exp.certifications && t.exp.certifications.map((cert, i) => (
+            <div key={i} className="mb-3">
+              <h4 className="font-bold text-sm leading-tight">{cert.title}</h4>
+              <p className="text-xs text-emerald-700 font-semibold">{cert.badge}</p>
+              <p className="text-xs text-gray-600 mt-0.5">{cert.desc}</p>
+            </div>
+          ))}
+
+          <h3 className="text-lg font-bold border-b border-gray-300 mb-4 mt-6 uppercase tracking-wider">{lang === 'ES' ? 'Educación' : 'Education'}</h3>
           {t.exp.edu.map((edu, i) => (
-            <div key={i} className="mb-4">
+            <div key={i} className="mb-3">
               <h4 className="font-bold text-sm leading-tight">{edu.title}</h4>
-              <p className="text-xs text-gray-600 mt-1">{edu.org}</p>
+              <p className="text-xs text-gray-600 mt-0.5">{edu.org}</p>
               <p className="text-xs text-gray-500">{edu.date}</p>
             </div>
           ))}
 
-          <h3 className="text-lg font-bold border-b border-gray-300 mb-4 mt-8 uppercase tracking-wider">{t.exp.languagesTitle}</h3>
+          <h3 className="text-lg font-bold border-b border-gray-300 mb-4 mt-6 uppercase tracking-wider">{t.exp.languagesTitle}</h3>
           {t.exp.languages.map((langItem, i) => (
             <div key={i} className="mb-4">
               <h4 className="font-bold text-sm">{langItem.title}</h4>

@@ -46,19 +46,11 @@ const Hero = ({ lang }) => {
 
   return (
     <section ref={container} id="inicio" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black pt-20">
-      {/* Background Video (Muted, monochrome, subtle) */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-black/60 z-10"></div>
-        <video 
-          ref={videoRef}
-          className="w-full h-full object-cover opacity-0 grayscale contrast-125" 
-          autoPlay 
-          loop 
-          muted 
-          playsInline
-        >
-          <source src="https://assets.codepen.io/3364143/7btrrd.mp4" type="video/mp4" />
-        </video>
+      {/* Background Cyber Grid & Ambient Glow (Zero network dependencies, fast & sleek) */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-32 -left-32 w-96 h-96 bg-emerald-500/10 rounded-full blur-[128px]"></div>
+        <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-emerald-500/5 rounded-full blur-[150px]"></div>
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
       </div>
 
       {/* Content Overlay */}
