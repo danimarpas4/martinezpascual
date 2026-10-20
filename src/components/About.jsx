@@ -22,6 +22,7 @@ const About = ({ lang, setShowCV }) => {
           opacity: 1,
           duration: 1,
           ease: "power3.out",
+          clearProps: "transform",
           scrollTrigger: {
             trigger: el,
             start: "top 85%",

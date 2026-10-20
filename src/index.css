@@ -91,3 +91,18 @@ html.lenis, html.lenis body {
     color: #059669 !important; /* emerald-600 for print */ 
   }
 }
+
+/* --- Optimizacion de nitidez y renderizado de fuentes --- */
+html, body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+/* Evitar desenfoque de subpixeles en capas aceleradas */
+.gsap-reveal, .gsap-reveal-exp, [class*="gsap-reveal"] {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+}
