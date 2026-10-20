@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Shield, Download, Server, Layout, Cpu, Lock, Crosshair } from 'lucide-react';
+import { Shield, Download, Server, Layout, Cpu, Lock, Crosshair, FileText } from 'lucide-react';
 import { translations } from '../translations';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
@@ -69,15 +69,26 @@ const About = ({ lang, setShowCV }) => {
                 <Shield className="w-4 h-4 text-gray-500" /> Cabo en activo
               </p>
               
-              <a 
-                href="/DANIEL_MARTÍNEZ_PASCUAL_v3.pdf" download="DANIEL_MARTÍNEZ_PASCUAL_v3.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 px-5 py-3.5 bg-black/40 hover:bg-white text-white hover:text-black backdrop-blur-xl border border-white/10 rounded-2xl transition-all duration-500 w-full justify-center font-medium text-sm"
-              >
-                <Download className="w-4 h-4" />
-                <span>{t.download}</span>
-              </a>
+              <div className="flex flex-col sm:flex-row gap-2.5 w-full">
+                <button 
+                  onClick={() => setShowCV(true)}
+                  className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-white text-black hover:bg-gray-200 rounded-xl transition-all duration-300 font-medium text-xs tracking-wide shadow-lg group/btn"
+                >
+                  <FileText className="w-4 h-4 text-emerald-600 transition-transform group-hover/btn:scale-110" />
+                  <span>{t.viewCV || "Ver CV online"}</span>
+                </button>
+                
+                <a 
+                  href="/DANIEL_MARTÍNEZ_PASCUAL_v3.pdf" 
+                  download="DANIEL_MARTÍNEZ_PASCUAL_v3.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-black/50 hover:bg-white/10 text-white backdrop-blur-xl border border-white/10 hover:border-white/20 rounded-xl transition-all duration-300 font-medium text-xs tracking-wide group/dl"
+                >
+                  <Download className="w-4 h-4 text-emerald-400 transition-transform group-hover/dl:translate-y-0.5" />
+                  <span>{t.downloadCV || "Descargar PDF"}</span>
+                </a>
+              </div>
             </div>
           </div>
 

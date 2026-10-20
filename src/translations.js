@@ -14,6 +14,8 @@ export const translations = {
       p2: "Aplico los valores militares de <strong>disciplina, liderazgo y seguridad operativa</strong> a la ciberseguridad. Actualmente me especializo en Blue Team, apoyándome en mis conocimientos de desarrollo para entender la tecnología desde sus cimientos.",
       p3: "Mi objetivo es integrar esta formación técnica y mi mentalidad defensiva en el sector tecnológico, preparándome para aportar valor real en <strong>Centros de Operaciones de Seguridad (SOC) y equipos de respuesta a incidentes</strong>.",
       stack: "Base de Conocimientos",
+      viewCV: "Ver CV online",
+      downloadCV: "Descargar PDF",
       download: "Ver CV",
       thmTitle: "Perfil de TryHackMe",
       thmBadge: "Top 5% Global",
