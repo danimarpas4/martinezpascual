@@ -69,7 +69,7 @@ const About = ({ lang, setShowCV }) => {
               </p>
               
               <a 
-                href="/CV_Daniel_Martinez_Pascual.pdf"
+                href="/DANIEL_MARTÍNEZ_PASCUAL_v3.pdf" download="DANIEL_MARTÍNEZ_PASCUAL_v3.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 px-5 py-3.5 bg-black/40 hover:bg-white text-white hover:text-black backdrop-blur-xl border border-white/10 rounded-2xl transition-all duration-500 w-full justify-center font-medium text-sm"

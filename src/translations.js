@@ -57,10 +57,34 @@ export const translations = {
           date: "Agosto 2025"
         }
       ],
-      certificationsTitle: "Certificaciones & Target",
+      certificationsTitle: "Certificaciones & Formación Complementaria",
       certifications: [
-        { title: "eLearnSecurity Junior Penetration Tester (eJPT)", badge: "In Progress - 2026", desc: "Certificación práctica en hacking ético, pentesting y metodologías de Blue/Red Team." },
-        { title: "CompTIA Security+", badge: "Target 2026", desc: "Fundamentos de ciberseguridad, gestión de riesgos y criptografía." }
+        {
+          title: "TryHackMe: Pre Security",
+          badge: "Completado",
+          desc: "Fundamentos de redes, seguridad web, fundamentos del sistema operativo Linux y conceptos iniciales de ciberseguridad."
+        },
+        {
+          title: "TryHackMe: Cyber Security 101",
+          badge: "Completado",
+          desc: "Bases esenciales de seguridad defensiva, principios de criptografía y amenazas y vulnerabilidades comunes."
+        },
+        {
+          title: "TryHackMe: SOC Level 1",
+          badge: "En curso",
+          desc: "Monitorización de seguridad, análisis de tráfico y eventos, herramientas SIEM (Splunk) y respuesta a incidentes en entornos SOC."
+        },
+        {
+          title: "Big Data aplicado al negocio",
+          badge: "Nov 2025 · FADE",
+          desc: "Formación especializada impartida por FADE (Empresas de Asturias) en análisis, gestión y aplicación de datos para inteligencia de negocio."
+        }
+      ],
+      targetCertificationsTitle: "Próximas certificaciones objetivo",
+      targetCertifications: [
+        "CompTIA Security+",
+        "AWS Academy Cloud Foundations",
+        "Blue Team Level 1 (BTL1)"
       ],
       decorationsTitle: "Condecoraciones",
       decorations: [
@@ -199,10 +223,34 @@ export const translations = {
           date: "August 2025"
         }
       ],
-      certificationsTitle: "Certifications & Targets",
+      certificationsTitle: "Certifications & Complementary Training",
       certifications: [
-        { title: "eLearnSecurity Junior Penetration Tester (eJPT)", badge: "In Progress - 2026", desc: "Practical certification in ethical hacking, penetration testing, and Blue/Red Team methodologies." },
-        { title: "CompTIA Security+", badge: "Target 2026", desc: "Cybersecurity fundamentals, risk management, and cryptography." }
+        {
+          title: "TryHackMe: Pre Security",
+          badge: "Completed",
+          desc: "Network fundamentals, web security, Linux operating system essentials, and introductory cybersecurity concepts."
+        },
+        {
+          title: "TryHackMe: Cyber Security 101",
+          badge: "Completed",
+          desc: "Essential defensive security foundations, cryptography principles, and common threats & vulnerabilities."
+        },
+        {
+          title: "TryHackMe: SOC Level 1",
+          badge: "In Progress",
+          desc: "Security monitoring, network traffic & log analysis, SIEM tools (Splunk), and incident response in SOC environments."
+        },
+        {
+          title: "Big Data Applied to Business",
+          badge: "Nov 2025 · FADE",
+          desc: "Specialized training by FADE (Federation of Asturian Enterprises) in data analytics, management, and business intelligence."
+        }
+      ],
+      targetCertificationsTitle: "Upcoming Target Certifications",
+      targetCertifications: [
+        "CompTIA Security+",
+        "AWS Academy Cloud Foundations",
+        "Blue Team Level 1 (BTL1)"
       ],
       decorationsTitle: "Decorations",
       decorations: [

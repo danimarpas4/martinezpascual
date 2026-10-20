@@ -7,7 +7,7 @@ const CVPrint = ({ lang, onClose }) => {
 
   const handlePrint = () => {
     const originalTitle = document.title;
-    document.title = 'CV_Daniel_Martinez_Pascual';
+    document.title = 'DANIEL_MARTÍNEZ_PASCUAL_v3';
     window.print();
     document.title = originalTitle;
   };
@@ -19,7 +19,7 @@ const CVPrint = ({ lang, onClose }) => {
       
       {/* Control Bar */}
       <div className="fixed top-0 left-0 w-full bg-[#151516] border-b border-white/10 p-3 md:p-4 flex flex-col md:flex-row justify-between items-center gap-3 md:gap-0 z-50 shadow-2xl print:hidden">
-        <span className="text-white font-medium text-xs md:text-sm truncate w-full md:w-auto text-center md:text-left">Curriculum_Vitae_DMP.pdf</span>
+        <span className="text-white font-medium text-xs md:text-sm truncate w-full md:w-auto text-center md:text-left">DANIEL_MARTÍNEZ_PASCUAL_v3.pdf</span>
         <div className="flex w-full md:w-auto gap-2 md:gap-4 justify-center">
           <button 
             onClick={handlePrint} 

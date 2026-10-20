@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Briefcase, GraduationCap, Calendar, Award, ExternalLink, Globe, ShieldCheck } from 'lucide-react';
+import { Briefcase, GraduationCap, Calendar, Award, ExternalLink, Globe, ShieldCheck, Target } from 'lucide-react';
 import { translations } from '../translations';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
@@ -105,6 +105,23 @@ const Experience = ({ lang }) => {
               </div>
             ))}
           </div>
+          {t.targetCertifications && (
+            <div className="mt-8 gsap-reveal-exp bg-[#151516] p-6 rounded-[2rem] border border-white/5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div className="flex items-center gap-3">
+                <Target className="text-emerald-400 w-5 h-5 shrink-0" />
+                <span className="text-sm text-gray-300 font-medium">
+                  {t.targetCertificationsTitle}:
+                </span>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {t.targetCertifications.map((target, idx) => (
+                  <span key={idx} className="px-3.5 py-1.5 bg-white/5 text-gray-300 text-xs rounded-full font-mono border border-white/10 hover:border-emerald-500/30 transition-colors">
+                    {target}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Decorations & Languages */}
