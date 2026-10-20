@@ -23,6 +23,7 @@ function App() {
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
   const [showCV, setShowCV] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
   useEffect(() => {
     document.documentElement.lang = lang.toLowerCase();
   }, [lang]);
@@ -67,8 +68,26 @@ function App() {
     }
     requestAnimationFrame(raf);
 
-    // Sync GSAP ScrollTrigger with Lenis
-    lenis.on('scroll', ScrollTrigger.update);
+    // Hook progress into Lenis directly (e.progress goes smoothly 0 to 1)
+    lenis.on('scroll', (e) => {
+      ScrollTrigger.update();
+      if (typeof e.progress === 'number' && !isNaN(e.progress)) {
+        setScrollProgress(Math.min(100, Math.max(0, e.progress * 100)));
+      }
+    });
+
+    const handleNativeScroll = () => {
+      const scrollY = window.pageYOffset || document.documentElement.scrollTop || window.scrollY || 0;
+      const total = document.documentElement.scrollHeight - window.innerHeight;
+      if (total > 0) {
+        const pct = (scrollY / total) * 100;
+        if (!isNaN(pct)) {
+          setScrollProgress(Math.min(100, Math.max(0, pct)));
+        }
+      }
+    };
+    window.addEventListener('scroll', handleNativeScroll, { passive: true });
+
     gsap.ticker.add((time) => {
       lenis.raf(time * 1000);
     });
@@ -77,6 +96,7 @@ function App() {
     return () => {
       lenis.destroy();
       gsap.ticker.remove(lenis.raf);
+      window.removeEventListener('scroll', handleNativeScroll);
     };
   }, []);
 
@@ -145,6 +165,18 @@ function App() {
         >
           <div ref={loaderTextRef} className="opacity-0 translate-y-10 text-white font-medium text-2xl tracking-tighter">
             Daniel Martínez Pascual.
+          </div>
+        </div>
+
+                {/* Scroll Progress Bar (Terminal Emerald #34d399 glow) */}
+        <div className="w-full h-[3px] bg-emerald-950/20 fixed top-0 left-0 z-[100] pointer-events-none">
+          <div 
+            className="h-full bg-emerald-400 shadow-[0_0_12px_#34d399,0_0_4px_#10b981] relative will-change-[width]" 
+            style={{ width: `${scrollProgress}%` }}
+          >
+            {scrollProgress > 0 && scrollProgress < 100 && (
+              <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_8px_#34d399]"></div>
+            )}
           </div>
         </div>
 
