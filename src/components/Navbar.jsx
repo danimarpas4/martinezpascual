@@ -134,9 +134,9 @@ const Navbar = ({ lang, setLang }) => {
       </nav>
     </header>
       {/* Scroll Progress Bar */}
-      <div className="w-full h-[2px] bg-transparent fixed bottom-0 left-0 z-[100]">
+      <div className="w-full h-[3px] bg-transparent fixed top-0 left-0 z-[100] pointer-events-none">
         <div 
-          className="h-full bg-emerald-500/80" 
+          className="h-full bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.8)] transition-all duration-75" 
           style={{ width: `${scrollProgress}%` }}
         ></div>
       </div>
