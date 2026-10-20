@@ -49,12 +49,13 @@ const Terminal = ({ lang, isOpen, onClose, isInline = false }) => {
         break;
       case 'soc status':
       case 'status':
-        newHistory.push({ type: 'system', text: '[VPS TELEMETRY - Hetzner Ubuntu 24.04.4 LTS]' });
-        newHistory.push({ type: 'system', text: '  ● HOSTNAME:   promilitar-server (91.98.138.15)' });
-        newHistory.push({ type: 'system', text: '  ● STATUS:     ONLINE / OPERATIONAL' });
+        newHistory.push({ type: 'system', text: '[VPS TELEMETRY - Hetzner Cloud Hardened Node]' });
+        newHistory.push({ type: 'system', text: '  ● HOSTNAME:   srv-sec-node-01 [REDACTED]' });
+        newHistory.push({ type: 'system', text: '  ● IP / NODE:  91.98.***.*** [MASKED - OPSEC PROTOCOL]' });
+        newHistory.push({ type: 'system', text: '  ● STATUS:     ONLINE / HARDENED' });
         newHistory.push({ type: 'system', text: '  ● FIREWALL:   UFW Active (Puertos 22, 80, 443 estrictos)' });
         newHistory.push({ type: 'system', text: '  ● FAIL2BAN:   2 jails activas (sshd, nginx-botsearch)' });
-        newHistory.push({ type: 'system', text: '  ● TLS/SSL:    Let\'s Encrypt TLS 1.3 (HSTS habilitado)' });
+        newHistory.push({ type: 'system', text: '  ● TLS/SSL:    Let\'s Encrypt TLS 1.3 (HSTS estricto)' });
         newHistory.push({ type: 'system', text: '  ● DEFENSE:    SSH ed25519 strictly enforced (password auth off)' });
         newHistory.push({ type: 'system', text: '  ● AUDIT LOGS: Nginx active error/access log monitoring' });
         break;
