@@ -23,14 +23,14 @@ const Hero = ({ lang }) => {
         ease: "power2.inOut"
       })
       .fromTo(textRefs.current, 
-        { y: 40, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1.2, stagger: 0.15, ease: "power4.out" },
+        { y: 35, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1.0, stagger: 0.12, ease: "power3.out", clearProps: "all" },
         "-=1.5"
       )
       .fromTo(terminalRef.current,
-        { x: 40, opacity: 0 },
-        { x: 0, opacity: 1, duration: 1, ease: "power3.out" },
-        "-=1.0"
+        { x: 35, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.9, ease: "power3.out", clearProps: "all" },
+        "-=0.9"
       );
     };
 

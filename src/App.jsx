@@ -51,7 +51,7 @@ function App() {
   // Initialize smooth scrolling with Lenis
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 0.9,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       direction: 'vertical',
       gestureDirection: 'vertical',
@@ -62,11 +62,12 @@ function App() {
       infinite: false,
     });
 
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
+    // Unified single RAF loop via GSAP ticker to eliminate frame jitter
+    const updateTicker = (time) => {
+      lenis.raf(time * 1000);
+    };
+    gsap.ticker.add(updateTicker);
+    gsap.ticker.lagSmoothing(0);
 
     // Hook progress into Lenis directly (e.progress goes smoothly 0 to 1)
     lenis.on('scroll', (e) => {
@@ -88,14 +89,9 @@ function App() {
     };
     window.addEventListener('scroll', handleNativeScroll, { passive: true });
 
-    gsap.ticker.add((time) => {
-      lenis.raf(time * 1000);
-    });
-    gsap.ticker.lagSmoothing(0);
-
     return () => {
+      gsap.ticker.remove(updateTicker);
       lenis.destroy();
-      gsap.ticker.remove(lenis.raf);
       window.removeEventListener('scroll', handleNativeScroll);
     };
   }, []);

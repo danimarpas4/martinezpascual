@@ -16,17 +16,17 @@ const Experience = ({ lang }) => {
     
     elements.forEach((el) => {
       gsap.fromTo(el, 
-        { y: 40, opacity: 0 },
+        { y: 30, opacity: 0 },
         {
           y: 0,
           opacity: 1,
-          duration: 1,
-          ease: "power3.out",
-          clearProps: "transform",
+          duration: 0.8,
+          ease: "power2.out",
+          clearProps: "all",
           scrollTrigger: {
             trigger: el,
-            start: "top 85%",
-            toggleActions: "play none none reverse"
+            start: "top 88%",
+            once: true
           }
         }
       );

@@ -101,11 +101,13 @@ html {
 }
 body {
   overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Evitar desenfoque de subpixeles en capas aceleradas */
-.gsap-reveal, .gsap-reveal-exp, [class*="gsap-reveal"] {
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  transform: translateZ(0);
+/* Evitar desenfoque forzando fuentes nitidas sin capas compuestas residuales */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
