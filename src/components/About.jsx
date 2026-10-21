@@ -46,14 +46,14 @@ const About = ({ lang, setShowCV }) => {
         
         <div className="flex flex-col items-center mb-24 text-center gsap-reveal">
           <h2 className="text-4xl md:text-6xl font-semibold text-white mb-4 tracking-tighter">{t.title}</h2>
-          <p className="text-gray-400 text-lg md:text-xl font-light tracking-wide max-w-2xl">Mente táctica, código limpio.</p>
+          <p className="text-slate-300 text-lg md:text-xl font-normal max-w-2xl">Mente táctica, código limpio.</p>
         </div>
         
         {/* Bento Box Layout */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6">
           
           {/* Profile Image (Left column, tall) */}
-          <div className="gsap-reveal md:col-span-1 rounded-[2rem] overflow-hidden bg-[#151516] border border-white/5 relative group h-[500px] flex flex-col justify-end transition-all duration-700 hover:scale-[1.01] hover:border-white/10">
+          <div className="gsap-reveal md:col-span-1 rounded-[2rem] overflow-hidden bg-[#151516] border border-white/10 relative group h-[500px] flex flex-col justify-end transition-all duration-700 hover:scale-[1.01] hover:border-white/20">
             <img 
               loading="lazy"
               src="/profile.jpg" 
@@ -65,8 +65,8 @@ const About = ({ lang, setShowCV }) => {
             
             <div className="relative z-20 p-8">
               <h3 className="text-2xl font-semibold text-white mb-1 tracking-tight">Daniel Martínez Pascual</h3>
-              <p className="text-gray-400 text-sm mb-6 flex items-center gap-2 font-light">
-                <Shield className="w-4 h-4 text-gray-500" /> Cabo en activo
+              <p className="text-slate-300 text-sm mb-6 flex items-center gap-2 font-normal">
+                <Shield className="w-4 h-4 text-emerald-400" /> Cabo en activo
               </p>
               
               <div className="flex flex-col sm:flex-row gap-2.5 w-full">
@@ -95,8 +95,8 @@ const About = ({ lang, setShowCV }) => {
           <div className="md:col-span-2 flex flex-col gap-4 lg:gap-6">
             
             {/* About Text Box */}
-            <div className="gsap-reveal bg-[#151516] p-8 lg:p-10 rounded-[2rem] border border-white/5 flex-1 flex flex-col justify-center transition-all duration-700 hover:bg-[#1c1c1e] hover:border-white/10">
-              <article className="space-y-6 text-gray-400 leading-relaxed text-lg font-light tracking-wide">
+            <div className="gsap-reveal bg-[#151516] p-8 lg:p-10 rounded-[2rem] border border-white/10 flex-1 flex flex-col justify-center transition-all duration-700 hover:bg-[#1c1c1e] hover:border-white/20 shadow-xl">
+              <article className="space-y-6 text-slate-200 leading-relaxed text-lg font-normal">
                 <p dangerouslySetInnerHTML={{ __html: t.p1 }} />
                 <p dangerouslySetInnerHTML={{ __html: t.p2 }} />
                 <p dangerouslySetInnerHTML={{ __html: t.p3 }} />
@@ -108,7 +108,7 @@ const About = ({ lang, setShowCV }) => {
               href="https://tryhackme.com/p/danimarpas4" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="gsap-reveal bg-[#151516] p-6 lg:p-8 rounded-[2rem] border border-white/5 transition-all duration-700 hover:scale-[1.01] hover:bg-[#1c1c1e] hover:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-6 group relative"
+              className="gsap-reveal bg-[#151516] p-6 lg:p-8 rounded-[2rem] border border-white/10 transition-all duration-700 hover:scale-[1.01] hover:bg-[#1c1c1e] hover:border-white/20 flex flex-col sm:flex-row items-center justify-between gap-6 group relative shadow-xl"
             >
               <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
                 <h4 className="text-white font-medium text-xl mb-1 flex items-center gap-3 tracking-tight flex-wrap">
@@ -120,7 +120,7 @@ const About = ({ lang, setShowCV }) => {
                     </span>
                   )}
                 </h4>
-                <p className="text-gray-400 text-sm font-light max-w-sm mb-2">
+                <p className="text-slate-300 text-sm font-normal max-w-sm mb-2">
                   {t.thmDesc}
                 </p>
                 <div className="text-[10px] text-gray-700 font-mono italic">

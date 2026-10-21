@@ -95,7 +95,7 @@ const Contact = ({ lang }) => {
         <div className="flex flex-col items-center mb-16 text-center gsap-reveal-contact">
           <h2 className="text-4xl md:text-6xl font-semibold text-white mb-6 tracking-tighter">{t.title}</h2>
           <div className="relative">
-            <p className="text-gray-400 text-lg font-light tracking-wide max-w-xl" dangerouslySetInnerHTML={{ __html: t.desc }} onClick={handleDescClick}></p>
+            <p className="text-slate-300 text-lg font-normal max-w-xl" dangerouslySetInnerHTML={{ __html: t.desc }} onClick={handleDescClick}></p>
             {emailCopied && (
               <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-emerald-500/20 text-emerald-400 border border-emerald-500/50 px-3 py-1 text-sm rounded-full animate-bounce">
                 {lang === 'ES' ? '¡Email copiado!' : 'Email copied!'}
@@ -104,10 +104,10 @@ const Contact = ({ lang }) => {
           </div>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-6 bg-[#151516] p-8 md:p-10 rounded-[2rem] border border-white/5 gsap-reveal-contact relative">
+        <form onSubmit={handleSubmit} className="space-y-6 bg-[#151516] p-8 md:p-10 rounded-[2rem] border border-white/10 gsap-reveal-contact relative shadow-xl">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-2">
-              <label htmlFor="name" className="text-sm font-medium text-gray-400 ml-1">{t.name}</label>
+              <label htmlFor="name" className="text-sm font-medium text-slate-300 ml-1">{t.name}</label>
               <input 
                 type="text" 
                 id="name"

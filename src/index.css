@@ -111,3 +111,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+strong, b {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+

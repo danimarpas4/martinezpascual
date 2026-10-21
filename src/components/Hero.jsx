@@ -13,29 +13,36 @@ const Hero = ({ lang }) => {
   const terminalRef = useRef(null);
 
   useGSAP(() => {
-    // Wait for the main app loader to finish before animating
-    const handleLoad = () => {
+    let played = false;
+    const playHeroAnimation = () => {
+      if (played) return;
+      played = true;
       const tl = gsap.timeline();
       
       tl.to(videoRef.current, {
         opacity: 0.4,
-        duration: 2,
+        duration: 1.5,
         ease: "power2.inOut"
       })
       .fromTo(textRefs.current, 
-        { y: 35, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1.0, stagger: 0.12, ease: "power3.out", clearProps: "all" },
-        "-=1.5"
+        { y: 30, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: "power3.out", clearProps: "transform" },
+        "-=1.2"
       )
       .fromTo(terminalRef.current,
-        { x: 35, opacity: 0 },
-        { x: 0, opacity: 1, duration: 0.9, ease: "power3.out", clearProps: "all" },
-        "-=0.9"
+        { x: 30, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.8, ease: "power3.out", clearProps: "transform" },
+        "-=0.6"
       );
     };
 
-    window.addEventListener('appLoaded', handleLoad);
-    return () => window.removeEventListener('appLoaded', handleLoad);
+    window.addEventListener('appLoaded', playHeroAnimation, { once: true });
+    const timer = setTimeout(playHeroAnimation, 2500);
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('appLoaded', playHeroAnimation);
+    };
   }, { scope: container });
 
   const addToRefs = (el) => {
@@ -68,27 +75,27 @@ const Hero = ({ lang }) => {
         <div className="flex flex-col items-start text-left">
           <h1 
             ref={addToRefs}
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold text-white mb-4 tracking-tighter leading-none opacity-0"
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold text-white mb-4 tracking-tighter leading-none"
           >
             {t.title}
           </h1>
           
           <h2 
             ref={addToRefs}
-            className="text-xl md:text-3xl font-medium mb-8 max-w-2xl text-gray-400 tracking-tight opacity-0"
+            className="text-xl md:text-3xl font-medium mb-8 max-w-2xl text-slate-200 tracking-tight"
           >
             {t.subtitle}
           </h2>
           
           <p 
             ref={addToRefs}
-            className="max-w-xl text-base md:text-lg text-gray-500 mb-12 leading-relaxed font-light opacity-0"
+            className="max-w-xl text-base md:text-lg text-slate-300 mb-12 leading-relaxed"
           >
             {t.desc}
           </p>
           
-          <div ref={addToRefs} className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto opacity-0">
-            <a href="#proyectos" className="px-8 py-4 bg-white text-black rounded-full font-medium transition-all duration-300 hover:scale-[1.02] hover:bg-gray-200 text-center w-full sm:w-auto">
+          <div ref={addToRefs} className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+            <a href="#proyectos" className="px-8 py-4 bg-white text-black rounded-full font-medium transition-all duration-300 hover:scale-[1.02] hover:bg-gray-200 text-center w-full sm:w-auto shadow-lg">
               {t.btnProjects}
             </a>
             <a href="#contacto" className="px-8 py-4 bg-transparent border border-white/20 text-white hover:bg-white/5 hover:border-white/40 rounded-full font-medium transition-all duration-300 text-center w-full sm:w-auto backdrop-blur-xl">
@@ -98,7 +105,7 @@ const Hero = ({ lang }) => {
         </div>
 
         {/* Right Column (Terminal) */}
-        <div ref={terminalRef} className="w-full opacity-0">
+        <div ref={terminalRef} className="w-full">
           <Terminal lang={lang} isInline={true} />
         </div>
 

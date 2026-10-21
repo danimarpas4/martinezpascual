@@ -70,12 +70,12 @@ const Projects = ({ lang }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center mb-24 text-center gsap-reveal-proj">
           <h2 className="text-4xl md:text-6xl font-semibold text-white mb-4 tracking-tighter">{t.title}</h2>
-          <p className="text-gray-400 text-lg md:text-xl font-light tracking-wide max-w-2xl">Diseñados para escalar.</p>
+          <p className="text-slate-300 text-lg md:text-xl font-normal max-w-2xl">Diseñados para escalar.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {t.items.map((project, idx) => (
-            <div key={idx} className="gsap-reveal-proj bg-[#151516] rounded-[2rem] border border-white/5 overflow-hidden flex flex-col group transition-all duration-700 hover:scale-[1.02] hover:bg-[#1c1c1e] hover:border-white/10">
+            <div key={idx} className="gsap-reveal-proj bg-[#151516] rounded-[2rem] border border-white/10 overflow-hidden flex flex-col group transition-all duration-700 hover:scale-[1.02] hover:bg-[#1c1c1e] hover:border-emerald-500/30 shadow-xl">
               
               {/* Project Visual Header */}
               <div className="h-56 bg-[#0a0a0a] flex items-center justify-center border-b border-white/5 relative overflow-hidden">
@@ -84,14 +84,14 @@ const Projects = ({ lang }) => {
               </div>
               
               <div className="p-8 flex-1 flex flex-col">
-                <h4 className="text-2xl font-semibold text-white mb-4 tracking-tight group-hover:text-gray-200 transition-colors">{project.title}</h4>
-                <p className="text-gray-400 text-sm mb-4 leading-relaxed font-light">{project.prob}</p>
-                <p className="text-gray-500 text-sm mb-8 leading-relaxed font-light">{project.det}</p>
+                <h4 className="text-2xl font-semibold text-white mb-4 tracking-tight group-hover:text-emerald-300 transition-colors">{project.title}</h4>
+                <p className="text-slate-200 text-sm mb-4 leading-relaxed font-normal">{project.prob}</p>
+                <p className="text-slate-400 text-sm mb-8 leading-relaxed font-normal">{project.det}</p>
                 
                 <div className="mt-auto">
                   <div className="flex flex-wrap gap-2 mb-6">
                     {project.tech.map(tech => (
-                      <span key={tech} className="px-3 py-1.5 bg-[#252528] text-gray-400 text-xs rounded-lg font-medium tracking-wide">
+                      <span key={tech} className="px-3 py-1.5 bg-[#252528] text-slate-300 text-xs rounded-lg font-mono font-medium tracking-wide border border-white/5">
                         {tech}
                       </span>
                     ))}
