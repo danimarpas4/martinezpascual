@@ -177,7 +177,7 @@ function App() {
         </div>
 
         <div className="flex flex-col min-h-screen bg-black text-white">
-          <Navbar lang={lang} setLang={setLang} />
+          <Navbar lang={lang} setLang={setLang} onOpenTerminal={() => setIsTerminalOpen(true)} />
           <main className="flex-grow">
             <Hero lang={lang} />
             <About lang={lang} setShowCV={setShowCV} />

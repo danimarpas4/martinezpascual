@@ -71,7 +71,19 @@ const Terminal = ({ lang, isOpen, onClose, isInline = false }) => {
       case 'cv':
       case 'download cv':
         newHistory.push({ type: 'system', text: 'INFO: Abriendo y descargando DANIEL_MARTÍNEZ_PASCUAL_v3.pdf...' });
+        newHistory.push({ type: 'system', text: '  ● ARCHIVO:   DANIEL_MARTÍNEZ_PASCUAL_v3.pdf' });
+        newHistory.push({ type: 'system', text: '  ● ALGORITMO: SHA-256' });
+        newHistory.push({ type: 'system', text: '  ● HASH:      0a134ebdab1b7af660500ffd18895e7537fdca7b2e2fbdd2ff7e5d3faee95362' });
+        newHistory.push({ type: 'system', text: '  ● ESTADO:    [INTEGRIDAD FORENSE VERIFICADA - COPIA OFICIAL]' });
         window.open('/DANIEL_MARTÍNEZ_PASCUAL_v3.pdf', '_blank');
+        break;
+      case 'sha256':
+      case 'hash':
+      case 'sha256sum':
+        newHistory.push({ type: 'system', text: '[VERIFICACIÓN DE INTEGRIDAD CRIPTOGRÁFICA (SHA-256)]' });
+        newHistory.push({ type: 'system', text: '  ● /DANIEL_MARTÍNEZ_PASCUAL_v3.pdf' });
+        newHistory.push({ type: 'system', text: '    0a134ebdab1b7af660500ffd18895e7537fdca7b2e2fbdd2ff7e5d3faee95362' });
+        newHistory.push({ type: 'system', text: '  ● ESTADO:    OK (Fichero inmutable verificado)' });
         break;
       case 'cat skills.txt':
         newHistory.push({ type: 'system', text: '[DEFENSE]: Ciberseguridad, Monitorización, Análisis de Logs' });

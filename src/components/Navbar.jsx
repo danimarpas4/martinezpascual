@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { translations } from '../translations';
 
-const Navbar = ({ lang, setLang }) => {
+const Navbar = ({ lang, setLang, onOpenTerminal }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
     const [activeSection, setActiveSection] = useState('inicio');
@@ -100,9 +100,27 @@ const Navbar = ({ lang, setLang }) => {
             >
               {lang === 'ES' ? 'EN' : 'ES'}
             </button>
+
+            <button
+              onClick={onOpenTerminal}
+              className="flex items-center gap-2 px-3 py-1.5 bg-[#161f2e] hover:bg-emerald-950/60 text-emerald-400 border border-emerald-500/30 hover:border-emerald-500/60 rounded-lg text-xs font-mono font-medium transition-all duration-300 shadow-sm group"
+              title="Abrir Terminal SOC"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span className="text-slate-300 group-hover:text-emerald-300 transition-colors">&gt;_</span>
+              <span className="text-emerald-400">Terminal</span>
+            </button>
           </div>
           
-          <div className="md:hidden flex items-center gap-4">
+          <div className="md:hidden flex items-center gap-3">
+            <button
+              onClick={onOpenTerminal}
+              className="flex items-center gap-1.5 px-2.5 py-1 bg-[#161f2e] text-emerald-400 border border-emerald-500/30 rounded-lg text-xs font-mono font-medium"
+              title="Terminal SOC"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span>&gt;_</span>
+            </button>
             <button 
               onClick={toggleLang}
               className="text-xs text-gray-400 hover:text-white transition-colors font-medium tracking-wide"

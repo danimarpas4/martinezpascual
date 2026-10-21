@@ -160,8 +160,13 @@ const Contact = ({ lang }) => {
             `}
           >
             {(status === 'idle' || status === 'error') && <><Send className="w-4 h-4" /> {t.send}</>}
-            {status === 'loading' && <span className="animate-pulse">Enviando...</span>}
-            {status === 'success' && <span>✓ Mensaje Enviado</span>}
+            {status === 'loading' && <span className="animate-pulse">{lang === 'ES' ? 'Cifrando y enviando...' : 'Encrypting & sending...'}</span>}
+            {status === 'success' && (
+              <span className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-white animate-ping"></span>
+                <span>{lang === 'ES' ? '✓ Transmisión Segura Enviada · Respuesta en <24h' : '✓ Secure Transmission Dispatched · Reply <24h'}</span>
+              </span>
+            )}
           </button>
           
           {status === 'error' && (

@@ -1,7 +1,15 @@
-import React from 'react';
-import { X, Download, ExternalLink } from 'lucide-react';
+import React, { useState } from 'react';
+import { X, Download, ExternalLink, ShieldCheck } from 'lucide-react';
 
 const CVPrint = ({ lang, onClose }) => {
+  const [copiedHash, setCopiedHash] = useState(false);
+
+  const handleCopyHash = () => {
+    navigator.clipboard.writeText("0a134ebdab1b7af660500ffd18895e7537fdca7b2e2fbdd2ff7e5d3faee95362");
+    setCopiedHash(true);
+    setTimeout(() => setCopiedHash(false), 2500);
+  };
+
   return (
     <div className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl flex flex-col items-center p-3 sm:p-6 overflow-hidden">
       {/* Control Bar */}
@@ -11,6 +19,16 @@ const CVPrint = ({ lang, onClose }) => {
           <span className="text-white font-medium text-xs sm:text-sm font-mono truncate max-w-[200px] sm:max-w-none">
             DANIEL_MARTÍNEZ_PASCUAL_v3.pdf
           </span>
+          <button
+            type="button"
+            onClick={handleCopyHash}
+            className="hidden lg:flex items-center gap-1.5 px-2.5 py-1 bg-black/60 hover:bg-emerald-950/60 text-emerald-400 border border-emerald-500/30 rounded-lg text-[11px] font-mono transition-colors"
+            title="SHA-256: 0a134ebdab1b7af660500ffd18895e7537fdca7b2e2fbdd2ff7e5d3faee95362"
+          >
+            <ShieldCheck className="w-3.5 h-3.5" />
+            <span>SHA-256: 0a134ebd...</span>
+            <span className="text-slate-400 font-sans text-[10px] ml-1">{copiedHash ? "✓ Copiado" : "(Copiar)"}</span>
+          </button>
         </div>
         
         <div className="flex items-center gap-2 sm:gap-3">
