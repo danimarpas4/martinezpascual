@@ -1,0 +1,10 @@
+# RFC 9116 - Security Vulnerability Disclosure Policy
+# Daniel Martinez Pascual - Blue Team Specialist & SOC Analyst
+Contact: mailto:danimarpas4@gmail.com
+Contact: https://martinezpascual.es/#contacto
+Expires: 2027-12-31T23:59:59.000Z
+Preferred-Languages: es, en
+Canonical: https://martinezpascual.es/.well-known/security.txt
+Policy: https://martinezpascual.es/
+Hiring: https://martinezpascual.es/#contacto
+Acknowledgments: https://martinezpascual.es/
